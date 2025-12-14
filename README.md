@@ -4,4 +4,6 @@ I'm trying to stay as close as possible to the original book's style. I may corr
 
 Current status: introduction + first 2 chapters basically done (a diagram is missing in the introduction), and some bits of few other chapters.
 
+Bibliography is done by hand. Few references have been added.
+
 LuaLaTeX is recommended. I haven't tested it with other compilers.
