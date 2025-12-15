@@ -69,14 +69,21 @@
 \renewcommand{\thesection}{§\arabic{section}}
 
 \newcommand{\mytodo}[1]{\todo[inline]{TODO: #1}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Ker}{\operatorname{Ker}}
 \newcommand{\supth}{\texorpdfstring{\textsuperscript{th}}{th}}
 \newcommand{\sub}[1]{\texorpdfstring{\textsubscript{#1}}{#1}}
-\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\divergence}[1]{\left(\pder{#1}{x}\right)^2 + \left(\pder{#1}{y}\right)^2 + \left(\pder{#1}{z}\right)^2}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Cont}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Sph}{\mathbb{S}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\divergence}[1]{\left(\pder{#1}{x}\right)^2 + \left(\pder{#1}{y}\right)^2 + \left(\pder{#1}{z}\right)^2}
 
 \allowdisplaybreaks
 \frenchspacing
@@ -899,181 +906,162 @@ In his 1869 paper, H. Weber had also cousidered that problem, but he had only de
 \end{equation}
 Having thus obtained an increasing infinite sequence \(\left(\lambda_n\right)\) of eigenvalues and the corresponding sequence \(\left(v_n\right)\) of eigenfunctions, Poincaré is of course aware of the non rigorous character of his ``proof''; however, having for the time being no better arguments at his disposal, he takes for granted the existence of \(\lambda_n\) and \(v_n\) and proceeds to study them in more detail, and in the first place to prove that the sequence \(\left(\lambda_n\right)\) tends to \(+\infty\), a question which Weber had not been able to answer. In his attack on that problem, it is quite remarkable to see Poincaré introducing a whole batch of \emph{completely new ideas}. In the first place, he considers the eigenvalues as functions \(\lambda_n(h, V)\) of the constant \(h\) and the domain \(V\) and begins to study the way in which they \emph{depend} on \(h\) and \(V\), a trend of thought which will later blossom in the work of H. Weyl and R. Courant, and even now has not entirely lost its interest. Poincaré first shows that, for \(V\) fixed, \(\lambda_n(h, V)\) is increasing with \(h\), by an application of Green's formula to the eigenfunctions \(v_n(h, V), v_n(h', V)\) corresponding to two values of \(h\); as he wants to prove that \(\lambda_n(h, V)\) tends to \(+\infty\), he can assume that \(h = 0\), which implies that \(\lambda_1(0, V) = 0\) and \(v_1(0, V)\) is a constant.
 
-% The second idea is to decompose V dinto a union of smaller solids Vl’V2’°°°’Vp; the variational definition of Xn enables him to prove that if p < n-1, Xn(O,V) is at least equal to the smallest of the numbers XZ(O,Vl), \ldots,XZ(O,VP). Poincaré is thus led to minorize xz(O,V) by a number depend ing only on the geometry of V3; by definition (since h = O), (26) ‘ff( v dw
-% this means finding a lower bound of the expression 3V, 2 3V, 2 dv, 2 fffi((g;g + (ay + (37) )aw
-% 2
-% (27’) j{( v dg = O,
+The second idea is to \emph{decompose} \(V\) into a union of smaller solids \(V_1, V_2, \ldots, V_p\); the variational definition of \(\lambda_n\) enables him to prove that if \(p \leq n-1, \lambda_n(0, V)\) is \emph{at least equal} to the smallest of the numbers \(\lambda_2(0, V_1), \ldots, \lambda_2(0, V_p)\). Poincaré is thus led to \emph{minorize} \(\lambda_2(0, V)\) by a number depending only on the geometry of \(V\); by definition (since \(h = 0\)), this means finding a lower bound of the expression
+\begin{equation}
+    \label{eq:3.26}
+    \frac{\iiint_V \left(\divergence{v}\right) d\omega}{\iiint_V v^2 d\omega}
+\end{equation}
+where \(v\) is a \(C^2\) function in \(\overline{V}\), subject to the condition
+\begin{equation}
+    \label{eq:3.27}
+    \iiint_V v d\omega = 0.
+\end{equation}
+He assumes \(V\) is \emph{convex}; using polar coordinates and the standard methods of the Calculus of variations, he obtains as lower bound
+\begin{equation}
+    \label{eq:3.28}
+    C \cdot \vol(V)/(\diam(V))^5
+\end{equation}
+where \(C\) is an absolute constant; one should here stress the fact that this Poincaré inequality is the first example of what we now call \emph{``a priori'' inequalities} (cf. Chap. \ref{ch:9}, \ref{sec:9.4}). Returning to the minoration of \(\lambda_n(0, V)\), he takes \(p = n-1\), assumes that \(V\) can be decomposed in \(n-1\) solids \(V_j\) which are convex and have a diameter tending to 0 with \(1/n\) and such that the ratio of their volume to the fifth power of their diameter tends to \(+\infty\) with \(n\); this gives him his conclusion.
 
-% 2 -
-% Vv
+Poincaré's next step is to investigate how the knowledge of the \(\lambda_n\) and \(v_n\) gives the solution of the cooling off problem, when the temperature \(u(x,y,z,O)\) is a known function \(f(x,y,z)\) in \(V\) at time \(t = O\). Fourier's method consists in writing
+\begin{equation}
+    \label{eq:3.29}
+    u(x,y,z,t) = \sum_{n=1}^\infty c_n \exp\left( -\lambda_n a^2 t \right) v_n(x,y,z)
+\end{equation}
+which gives for the unknown coefficients \(c_n\) the condition that \(f = \sum\limits_{n=1}^\infty c_n v_n\), hence, from the orthogonality relations, \(c_n = \iiint_V fv_n d\omega\). But Poincaré, no more than Weber, is not at that time able to prove that this Fourier expansion converges to the function \(f\) in \(V\). However, taking his cue from Tchebychef's results in approximation theory, he shows (by a clever use of Green's formula) that the integral
+\[
+    S_n = \iiint_V \left( u - \sum_{k=1}^n c_k \exp\left( -\lambda_k a^2 t \right) v_k \right)^2 d\omega
+\]
+satisfies an inequality \(S_n \leq C \cdot \exp\left(-\lambda_{n+1} a^2 t\right)\) where \(C\) is independent of \(n\) and \(t\); in other words, for \(t > O\), he proves the convergence of the series in \eqref{eq:3.29} in what we now call the topology of Hilbert space\footnote{The method of least squares of Legendre--Gauss had led Tchebychef to define a ``best approximation'' to a function \(F\), by a linear combination \(\sum\limits_{j=1}^N a_j \psi_j\) of given functions \(\psi_j (1 \leq j \leq N)\), by the condition that
+\[
+    \sum_{k=1}^n \rho(x_k)\left( F(x_k) - \sum_{j=1}^N a_j \psi_j(x_k) \right)^2
+\]
+be minimum, for given points \(x_k (1 \leq k \leq n)\) and given ``weight'' \(\rho\). Gram, in 1883, generalized the problem by considering instead of a finite sum, an integral
+\begin{equation}
+    \tag{+}
+    \label{eq:3.+}
+    \int_a^b \rho(x) \left( F(x) - \sum_{j=1}^N a_j \psi_j(x) \right)^2 dx
+\end{equation}
+and he solved the problem in an original way, by applying to the \(\psi_j\) the ``orthogonalization process'' usually attributed to E. Schmidt \cite{089}. He was thus reduced to the case in which the \(\psi_j\) form an orthonormal system (for the measure \(\rho dx\)), where he showed that the \(a_j\) giving the best approximation \(a\) are the ``Fourier coefficients'' \(\int_a^b \rho(x)F(x)\psi_j(x)dx\). He went on to consider an \emph{infinite} orthonormal system \((\psi_n)\) and investigated under which conditions the minimum value \(\mu_n\) of the integral \eqref{eq:3.+} tends to 0 when \(n\) increases to \(+\infty\); he was able to see that this was linked to the ``completeness'' of the system \((\psi_n)\), i.e. the fact that no function other than the constant 0 is orthogonal to all \(\psi_n\). It is unlikely that Poincaré had any knowledge of Gram's paper.}.
 
-% where v is a C function in V, subject to the condition \"
+The final section of Poincaré's paper (if we except a kind of postscript which we will discuss later in Chapter \ref{ch:4}, \ref{sec:4.4}) is devoted to the general study of the eigenfunctions \(v_n\) (their existence being admitted). In general, if \(v\) satis fies \eqref{eq:3.23} and \eqref{eq:3.24}, use of Green's formula shows that there is a formula similar to Green's expression of the potential (Chap. \ref{ch:2}, \ref{sec:2.3}, formula \eqref{eq:2.17})
+\begin{equation}
+    \label{eq:3.30}
+    -4\pi v(M) = \iint_\Sigma v\left( \pder{T}{n} + hT \right)d\sigma
+\end{equation}
+where \(T\) (replacing the function \(1/r\)) is now \(\exp(i/\sqrt{\lambda} r)/r\). Using that formula, he is able to show, after a rather long discussion (patterned on the study of double layer potentials but more difficult), that \(v\) is continuous in \(\overline{V}\), and to obtain bounds for its derivatives in \(V\).
 
-% THE EQUATION OF VIBRATING MEMBRANES 59
-% He assumes V is convex; using polar coordinates and the
-% standard methods of the Calculus of variations, he obtains as (28) c-vol(v)/(diam(v))5
-% lower bound
-% where C is an absolute constant; one should here stress the fact that this Poincaré inequality is the first example of what we now call "a priori" inequalities (cf. Chap. IX, 4). Returning to the minoration of ) _(0,V), he takes p = n-1, assumes that V can be decomposed in n-=1 solids Vj which are convex and have a diameter tending to O with 1/n and
-% such that the ratio of their volume to the fifth power of their diameter tends to +o with n; +this gives him his
-% conclusion,
-% Poincaré's next step is to investigate how the knowledge of the Xn and v gives the solution of the cooling off prob lem, when the temperature u(x,y,z,O) is a known function f(x,y,2) din V at time t = O, Fourier's method consists
-% in writing
+The second paper devoted by Poincaré to the equation of vibrating membranes (\cite{177}, vol.~IX, p.~123--196) is even more original. It is likely that in 1890, he was not aware of Schwarz's paper of 1885. The publication of Picard's note in 1893 immediately attracted his attention, and in a few months he had seen that by combining Schwarz's method and his ``a priori'' inequality of 1890, he could go beyond Picard and prove the analytic continuation of the function \(\xi \mapsto w(M, \xi)\) as a \emph{meromorphic function in the whole complex plane}, obtaining at the same time the existence of the long sought eigenvalues and eigenfunctions for the Helmholtz equation (with the same boundary condition as Schwarz).
 
-% (29) u(x,y,z,t) = n
-% 2
-% . c, exp(-A a"t)v_(x,y,2) TM8
+Poincaré starts with a simplification and an impvrovement of his inequality for the expression \eqref{eq:3.26}; using Schwarz's inequality, he is able to replace his lower bound \eqref{eq:3.28} by \(C/(\diam(V))^2\) for a convex solid \(V\). He then only assumes that for a general solid \(V\) it is possible to decompose it in convex solids having arbitrary small diameters, and uses this idea of decomposition to prove the following crucial lemma: given \(p\) arbitrary \(C^2\) functions \(F_1, F_2, \ldots, F_p\) in \(\overline{V}\), it is possible to choose \(p\) numbers \(\alpha_1, \ldots, \alpha_p\) in such a way that, for \(v = \alpha_1 F_1 + \ldots \alpha_p F_p\), one has \(\iiint_V v d\omega = 0\) and the ratio \eqref{eq:3.26} is \emph{at least} \(L_p\), where \(L_p\) is a number which only depends on \(V\) and \(p\) (and not on the \(F_j\)) and \emph{tends to} \(+\infty\) with \(p\). This is simply done by decomposing \(V\) in the union of \(p-1\) convex subsets \(V_j\), and choosing the coefficients \(\alpha_j\) by the \(p-1\) conditions \(\iiint_{V_j} v d\omega = 0 \; (1 \leq j \leq p - 1)\).
 
-% which gives for the unknown coefficients C. the condition TM8 it C V. hence, from the orthogonality relations, n 1
-% C =jK" fvn dw. But Poincaré, no more than Weber, is not at
-% that time able to prove that this Fourier expansion converges to the function f in V., However, taking his cue from Tchebychef's results in approximation theory, he shows (by a clever use of Green's formula) that the integral
+Poincaré, as Picard, limits himself to the case in which the function \(p\) in equation \eqref{eq:3.8} is the constant 1, but considers a problem which slightly generalizes Schwarz's, namely he looks for a function \(v\) solution of
+\begin{equation}
+    \label{eq:3.31}
+    \Delta v + \xi v + f = 0
+\end{equation}
+and vanishing on the boundary \(\Sigma\), with \(f\) an \emph{arbitrary} \(C^\infty\) function (if in Schwarz's equation \eqref{eq:3.8} with \(p = 1\), one writes \(w = w_0 + \xi v\), the equation for \(v\) is \eqref{eq:3.31} with \(f=w_0\)); he will make a very clever use of this arbitrariness. He starts by observing that Schwarz's method works just as well for arbitrary \(f\) as for \(f = 1\), and proves the existence of the solution of \eqref{eq:3.31} vanishing on \(\Sigma\) for \emph{small enough} \(|\xi|\); he writes it
+\[
+    v = [f, \xi] = v_0 + \xi v_1 + \ldots + \xi^n v_n + \ldots
+\]
+with \(\Delta v_0 + f = 0, \Delta v_n + v_{n-1}=0\) for \(n \geq 1\), the \(v_n\) all vanishing on \(\Sigma\).
 
-% 60 CHAPTER III
-% satisfies an inequality S_ < Coexp(-xn+la2t) where C is independent of n and +t3; 4in other words, for t > O, he proves the convergence of the series in (29) in what we now call the topology of Hilbert space(*).
-% The final section of Poincaré's paper (if we except a kind of postscript which we will discuss later in Chapter IV, 4) is devoted to the general study of the eigenfunctions v
-% (*) The method of least squares of Legendre-Gauss had led Tchebychef to define a "best approximation" to a function F, by a linear combination z ajwj of given functions wj j=1
-% (1< jsN), by the condition that
+For any given integer \(p\), he introduces \(p\) arbitrary coefficients \(\alpha_1, \ldots, \alpha_p\) and forms the function (defined at least for small \(\xi\))
+\begin{equation}
+    \label{eq:3.32}
+    w = [\alpha_1 f + \alpha_2 v_0 + \ldots + \alpha_p v_{p-2}, \xi] = w_0 + w_1 \xi + \ldots + w_n \xi^n + \ldots
+\end{equation}
+Next, applying his lemma for the evaluation of the Schwarz integrals \(W_n\) \emph{corresponding to} \(w\), he is able to show that, for a suitable \emph{choice} of the \(\alpha_j\) the series \eqref{eq:3.32} \emph{converges for} \(|\xi| \leq L_p\) (uniformly in \(\overline{V}\)). But if one writes \(u_j = \left[v_{j-2}, \xi\right]\), one has
+\begin{equation}
+    \label{eq:3.33}
+    \begin{cases}
+        \alpha_1 v + \alpha_2 u_2 + \ldots \alpha_p u_p = w \\
+        v - u_2 \xi = v_0 \\
+        u_2 - u_3 \xi = v_1 \\
+        \dotfill \\
+        u_{p-1} - u_p \xi = v_{p-2}
+    \end{cases}
+\end{equation}
+a linear system from which Cramer's formulas give
+\begin{equation}
+    \label{eq:3.34}
+    v = P / D
+\end{equation}
+with
+\[
+    D =
+    \left|
+    \begin{matrix}
+        \alpha_1 & \alpha_2 & \alpha_3 & \ldots & \alpha_{p-1} & \alpha_p \\
+        1 & -\xi & 0 & \ldots & 0 & 0 \\
+        0 & 1 & -\xi & \ldots & 0 & 0 \\
+        \hdotsfor{6} \\
+        0 & 0 & 0 & & 1 & -\xi
+    \end{matrix}
+    \right|
+    = \alpha_p - \alpha_{p-1}\xi + \alpha_{p-2}\xi^2 - \ldots + (-1)^{p-1} \alpha_1 \xi^p
+\]
+and
+\[
+    D =
+    \left|
+    \begin{matrix}
+        w & \alpha_2 & \alpha_3 & \ldots & \alpha_{p-1} & \alpha_p \\
+        v_0 & -\xi & 0 & \ldots & 0 & 0 \\
+        v_1 & 1 & -\xi & \ldots & 0 & 0 \\
+        \hdotsfor{6} \\
+        v_{p-2} & 0 & 0 & \ldots & 1 & -\xi
+    \end{matrix}
+    \right|
+\]
+which shows that \(P\), as \(w\), is equal to a series
+\begin{equation}
+    \label{eq:3.35}
+    P = P_0 + P_1 \xi + \ldots + P_n \xi^n + \ldots
+\end{equation}
+where the \(P_n\) are \(C^\infty\) functions in \(\overline{V}\) vanishing on \(\Sigma\), the series being uniformly convergent in \(\overline{V}\) for \(|\xi| < L_p\), and all derivatives of \(P\) (with respect to \(\xi\) or to \(x,y,z\)) being obtained by derivating termwise the series. This shows that \(\xi \mapsto v(M, \xi)\) extends to a \emph{meromorphic} function in \(|\xi|<L_p\) with a finite anumber of poles, which are roots of \(D(\xi) = 0\) and \emph{independent} of \(M\); it is easy to show, using Green's formula, that these poles are all \emph{simple}. As this is true for any \(p, (\xi \mapsto v(M, \xi)\) extends to a meromorphic function in the \emph{whole complex plane}, with simple real and positive poles independent of \(M\); furthermore, for each one of these poles \(\lambda_n\), the function \(P(M, \lambda_n)\) satisfies \(\Delta P + \lambda_n P = 0\); in other words, one has found for each \(\lambda_n\) an eigenfunction \(u_n\) corresponding to that eigenvalue. In addition, Poincaré's \emph{a priori} inequality enables him to show that \(\lambda_n \geq c \cdot n^{2/3}\), where \(c\) is a constant,
 
-% £ e (x) (F(xy) - a v,(x))
-% 2
-% . oMz n -
-% be minimum, for given points Xqe (1sksn) and given "weight" (+) f o (x)(F(x) = £ ay.(x))? dx a j=1
-% P Gram, in 1883, generalized the problem by considering instead of a fin%te sum, an integral
-% N2
-% and he solved the problem in an original way, by applying to the wj the "orthogonalization process" usually attributed to E., Schmidt [89]. He was thus reduced to the case in which the . form an orthonormal system (for the measure pdx), where he showed that the aj giv%ng the best approximation a are the "Fourier coefficients" p(x)F(x)wj(x)dx. He went a
-% on to consider an infinite orthonormal system (wn) and in vestigated under which conditions the minimum wvalue Hn of the integral (+) teuds to O when n increases to +w; he was able to see that this was linked to the "completeness" of the system (y_), di.e. the fact that no function other than the constant O is orthogonal to all wn. It is unlikely that Poincaré had any knowledge of Gram's paper.
+The remainder of Poincaré's 1894 paper is devoted to two questions:
 
-% THE EQUATION OF VIBRATING MEMBRANES 61
-% (their existence being admitted). 1In general, if v satis fies (23) and (24), use of Green's formula shows that there
-% is a formula similar to Green's expression of the potential (30) ~dnv(M) = {[l V(%% + hT)do
-% (Chap.II, 3, formula (17))
-% 2
-% where T (replacing the function 1/r) is now exp(i/A r)/r Using that formula, he is able to show, after a rather long
-% discussion (patterned on the study of double layer potentials but more difficult), that v is continuous in V, and to obtain bounds for its derivatives in V,
-% The second paper devoted by Poincaré to the equation of vi brating membranes ([177], vol.IX, p.123-196) is even more original, It is likely that in 1890, he was not aware of Schwarz's paper of 1885, The publication of Picard'!'s note in 1893 immediately attracted his attention, and in a few months he had seen that by combining Schwarz's method and his "a priori" inequality of 1890, he could go beyond Picard and prove the analytic continuation of the function £+~ w(M,E£) as a meromorphic function in the whole complex plane, obtain ing at the same time the existence of the long sought eigen values and eigenfunctions for the Helmholtz equation (with the same boundary condition as Schwarz),
-% Poincaré starts with a simplification and an impvrovement of his inequality for the expression (26); using Schwarz's ine
-% quality, he is able to replace his lower bound (28) by C/(diam(V))2 for a convex solid V, He then only assumes that for a general solid V it is possible to decompose it
-% 62 CHAPTER IITI
-% in convex solids having arbitrary small diameters, and uses
-% this idea of decomposition to prove the following crucial lemma: given p arbitrary C functions Fl’FZ""’Fp in
-% 2
-% V, it is possible to choose p numbers ql, \ldots,a in such a way that, for v = alFl + oot @pr, one has Ifl’ v dy = O \%
-% and the ratio (26) is at least Lp, where Lp is a number which only depends on V and p (and not on the Fj) and tends to 4o with p. This is simply done by decomposing V (1 < j £ p-1). J
-% in the union of p-1 convex subsets V., and choosing the coefficients Qj by the p-1 conditions I]I; v dw = O
-% Poincaré, as Picard, limits himself to the case in which the function p in equation (8) is the constant 1, but considers
-% a problem which slightly generalizes Schwarz's, namely he (31) AV + Ev + £ =O
-% looks for a function v solution of
-% and vanishing on the boundary Y, with f an arbitrary c” function (if in Schwarz's equation (8) with p = 1, one writes w = W+ Ev, the equation for v is (31) with f=wok he will make a very clever use of this arbitrariness,., He starts by observing that Schwarz'!'s method works just as well for arbitrary f as for f = 1, and proves the existence of the solution of (31) vanishing on ¥ for small enough K
-% he writes it
-% v = [£f,€] = v_ + EV, +eeot nv fooeo
-% o
-% with AVO + £ = O, Avn + Vv =0 for n =21, the v all vanishing on Y,
-% THE EQUATION OF VIBRATING MEMBRANES 63
-% For any given integer p, he introduces p arbitrary coef ficients al, \ldots,gp and forms the function (defined at least for small )
-% n
-% Next, applying his lemma for the evaluation of the Schwarz in tegrals Wn correspondingto w, he is able to show that, for a suitable choice of the @ j» the series (32) converges for |g] = L) (uniformly in V). But if one writes ug = Evj_z,gj, one has
-% V - u2 = VO
-% (33) 1 U - u3 = Vl
-% u - u =V p-1 pg p=2
-% L
-% (34) v = P/D
-% a linear system from which Cramer's formulas give
-% with
-% Gy G Qg eeca ;G
-% 1 = O  \ldots O 0
-% D= {0 1 =€  \ldots O 0 | =a -a€ + ap_22-o--+Glffii@lp O 0 0 1 -8
-% and
-% 64 CHAPTER IIT
-% Vo - O o o) 0
-% P = |V1 1 -E e O O
-% which shows that P, as w, 1is equal to a series (35) P =P + P& +e00+ P E" +..,
-% n
-% where the P are ¢® functions in V vanishing on ¥, the series being uniformly convergent in V for || < L , and P
-% all derivatives of P (with respect to £ or to x,v,z) being obtained by derivating termwise the series, This shows that E+> v(M,) extends to a meromorphic function in |[£|<Lp with a finite anumber of poles, which are roots of D(g) = 0O
-% and independent of M; it is easy to show, using Green's formula, that these poles are all simple. As this is true for any p, £+ v(M,E) extends to a meromorphic function in the whole complex plane, with simple real and positive poles
-% independent of M; furthermore, for each one of these poles A n’ the function P(M,xn) satisfies AP + A,P =03 in other words, one has found for each Xn an eigenfunction u corresponding to that eigenvalue. In addition, Poincaré's a priori inequality enables him to show that kn > c-n2/3, where ¢ is a constant,
-% The remainder of Poincaré's 1894 paper is devoted to two questions:
-% A) In the last 4 sections of the paper, he takes up again the problem of Fourier expansions (when the boundary conditian
-% THE EQUATION OF VIBRATING MEMBRANES 65
-% is v=0), Attaching to the function f its "Fourier coef ficients" ¢ = qT' fu_dy (where the eigenfunctions u _ have J\2
-% been normalized by (f{ undw = 1), he first deduces from the \
-% relations Aun + xnun = O and Schwarz's inequality, that Ju| < A\ in V (A constant), and that the c_ are uni formly bounded, From that it follows that for £ different from the eigenvalues the unique solution of (31) vanishing on Y 1dis given by the absolutely and uniformly convergent series (36) V = = 3 7 tVoF vlg;
+A) In the last 4 sections of the paper, he takes up again the problem of Fourier expansions (when the boundary condition is \(v=0\)). Attaching to the function \(f\) its ``Fourier coefficients'' \(c_n = \iiint_V f u_n d\omega\) (where the eigenfunctions \(u_n\) have been normalized by \(\iiint_V u^2_n d\omega = 1\)), he first deduces from the relations \(\Delta u_n + \lambda_n u_n = 0\) and Schwarz's inequality, that \(|u_n| \leq A \lambda_n\) in \(\overline{V}\) (\(A\) constant), and that the \(c_n\) are uniformly bounded. From that it follows that for \(\xi\) different from the eigenvalues the unique solution of \eqref{eq:3.31} vanishing on \(\Sigma\) is given by the absolutely and uniformly convergent series
+\begin{equation}
+    \label{eq:3.36}
+    v = -\sum_n \frac{c_n u_n \xi^2}{\lambda^2_n \left( \xi - \lambda_n \right)} + v_0 + v_1 \xi;
+\end{equation}
+in addition, Poincaré shows that if the series \(\sum\limits_n c_n u_n\) is absolutely convergent, its sum is equal to \(f\); he cannot prove that for ``arbitrary'' functions \(f\) (probably at least \(C^4\)), vanishing on \(\Sigma\), the series converges, but he proves absolute convergence when in addition \(\Delta f\) and \(\Delta^2 f\) also vanish on \(\Sigma\).
 
-% Cnung
-% 2
+B) Before returning to the question of Fourier expansions, Poincaré had tried to extend his results on the existence of eigenvalues and eigenfunctions for the boundary condition \eqref{eq:3.24} of the cooling off problem. He realizes that Schwarz's method would work, and therefore also his own existence theorem, \emph{provided} one could prove the existence of a ``Green function'' for the Laplace equation with that new boundary condition, i.e. a function \(G(M, P)\) having the same properties as the usual Green function, with the exception that, for \(M \in V, P \mapsto G(M, P)\) satisfies \eqref{eq:3.24} on the boundary.
 
-% A2 (g-n)
-% in addition, Poincaré shows that if the series cu is absolutely convergent, its sum is equal to I eBh| e cannot prove that for "arbitrary" functions £ (probably at least Ch), vanishing on Y, the series converges, but he proves absolute convergence when in addition Af and Azf also
-% vanish on e
-% B) Before returning to the question of Fourier expansions, Poincaré had tried to extend his results on the existence of eigenvalues and eigenfunctions for the boundary condition (2L4) of the cooling off problem. He realizes that Schwarz's method would work, and therefore also his own existence theorem, provided one could prove the existence of a "Green function"
-% for the Laplace equation with that new boundary condition,i.e. a function G(M,P) having the same properties as the usual Green function, with the exception that, for M ¢ V, P~ G(M,P) satisfies (24) on the boundary.
-% In the special case h=0, C, Neumann, in his work on the
+\emph{In the special case} \(h=0\), C. Neumann, in his work on the Dirichlet problem, had shown how to obtain such a ``Green function'' (also named ``Neumann function'') when \(V\) is convex and not a double cone. He had observed that by changing the sign before the integral in the Beer--Neumann equation (Chap. \ref{ch:2}, \ref{sec:2.4}, formula \eqref{eq:2.23}), the solution of that new equation gave a density \(\rho\) such that the corresponding double layer potential, in the \emph{exterior} of \(V\) (complement of \(\overline{V}\)) is harmonic, tends to 0 at infinity and to \(-g\) on the boundary \(\Sigma\) (a solution to what is called the ``exterior Dirichlet problem''). From this result, he had shown how to obtain a solution of what is now called the \emph{Neumann problem} for the Laplace equation: find in \(V\) a harmonic function \(u\) such that \(u\) is continuous in \(\overline{V}\) and has on \(\Sigma\) a normal derivative \(\pder{n}{u}\) equal to a \emph{given} continuous function \(g\); a necessary condition for the existence of the solution (deduced from Green's formula applied to \(u\) and the constant 1) is that \(\iint_\Sigma g d\sigma = 0\). Neumann proves that this condition is sufficient (the solutions being determined up to an additive constant): he considers the \emph{simple layer} potential \(w\) defined by the density \(\frac{1}{4\pi} g\); it is continuous on \(\Sigma\) and its normal derivative jumps by \(-g\) when crossing \(\Sigma\) from the interior to the exterior. Neumann next takes the \emph{double layer} potential \(v\), solution of the \emph{exterior} Dirichlet problem which tends to \(-w\) on \(\Sigma\). Then the function \(u = v + w\) is harmonic outside \(\Sigma\), and 0 in the exterior of \(V\); as the normal derivative of \(v\) is the same on both sides of \(\Sigma\), it follows at once that \(\pder{u}{n}\) tends to \(g\) from \(\Sigma\) from the interior of \(\)V, and therefore solves the Neumann problem.
 
-% 66 CHAPTER III
-% Dirichlet problem, had shown how to obtain such a "Green function" (also named "Neumann function") when V is convex and not a double cone, He had observed that by changing the sign before the integral in the Beer--Neumann equation (Chap. IT, 4, formula (23)), the solution of that new equation gave a density p such that the corresponding double layer poten=- tial, in the exterior of V (complement of V) is harmonic, tends to O at infinity and to =g on the boundary I (a solution to what is called the "exterior Dirichlet problem"), From this result, he had shown how to obtain a solution of
-% what is now called the Neumann problem for the Laplace equa tion: find in V a harmonic function u such that u is
+C. Neumann had not been able to solve the corresponding problem when the boundary condition is \(\pder{u}{n} + hu = g\) for a an constant \(h > 0\). Poincaré tried to solve the problem by representing \(u\) as a power series in \(h, u = u_0 + h u_1 + \ldots + h^n u_n + \ldots\), and was indeed able to obtain in that way (using Neumann's results) a series convergent for all \(h \geq O\), uniformly in \(\overline{V}\); however, for the first derivatives, his method could omnly prove uniform convergence in compact subsets of \(V\), so that it was impossible to give meaning to \(\pder{u}{n}\) on the boundary \(\Sigma\), and to show that u was indeed a solution of the problem. The most interesting result in this attempt is that Poincaré, probably for the first time in history, arrives at the idea of ``weak'' solution of a boundary problem; he shows that his function \(u\) is such that, for \emph{any} function \(v\) which is \(C^2\) in \(\overline{V}\), one has
+\begin{equation}
+    \label{eq:3.37}
+    \iiint_V u\Delta v d\omega + \iint_\Sigma gv d\sigma = \iint_\Sigma \left( \pder{v}{n} + hv \right) u d\sigma
+\end{equation}
+and adds that ``physically'' this is equivalent to a genuine solution.
 
-% on
-% continuous in V and has on X a normal derivative au
-% equal to a given continuous function g; a necessary condi
-% tion for the existence of the solution (deduced from Green's formula applied to u and the constant 1) is that fr.g do =0,
-% Neumann proves that this condition is sufficient (the solu tions being determined up to an additive constant): he con 1 . . . . .
-% siders the simple layer potential w defined by the density flfi'g; it is continuous on  and its normal derivative jumps by =g when crossing Y from the interior to the ex terior. Neumann next takes the double layer potential v, solution of the exterior Dirichlet problem which tends to -w on ¥, Then the function u = v+w is harmonic outside Y, and O in the exterior of V; as the normal derivative of
-% v is the same on both sides of ¥, it follows at once that %E— tends to g from T from the interior of V, and there
-% fore solves the Neumann problem,
+The last of the three long papers of Poincaré on partial differential equations was witten in 1895 (\cite{177}, vol.~IX, p.~202--272). Although it is the one which contains the smallest number of new results, it probably had a greater influence than the others. From his work both on the Dirichlet problem and on the equation of vibrating membranes, Poincaré had become convinced that there were also ``eigenvalues'' and ``eigenfunctions'' linked to the Dirichlet problem. For us this is completely obvious, for if we look for a solution of \(\Delta u = 0\) taking given values on the boundary \(\Sigma\) of \(V\), we extend the function \(g\) given on \(\Sigma\) to a \(C^2\) function \(h\) in \(\overline{V}\) (when this is possible); replacing \(u\) by \(v = u-h\), we have to find a solution of \(\Delta v + f = O\), with \(f = \Delta h\), which vanishes on \(\Sigma\), and this is just the special case of Schwarz's problem for the equation \eqref{eq:3.31} with \(\xi = 0\).
 
-% THE EQUATION OF VIBRATING MEMBRANES 67
-% C. Neumann had not been able to solve the corresponding prob lem when the boundary condition is 2-+ hu = g for a an constant h > 0. Poincaré tried to solve the problem by re
-% presenting u as a power series in h, u = u_ o+ hul +tooeoot + hnun +eeey and was indeed able to obtain in that way (using Neumann's results) a series convergent for all h = O, uniformly in V; however, for the first derivatives, his method could omnly prove uniform convergence in compact sub
+At that time, however, nobody had yet thought of this simple argument\footnote{It is explicitly mentioned in 1909 by E.E. Levi \cite[vol.~II, p.~302--313]{145}; the first statement and proof of the existence of a continuous function in the whole space \(\R^3\) extending a given function defined and continuous in a closed subset (\emph{i.e.} what we now call the Tietze--Urysohn theorem) is due to Lebesgue in 1907 \cite[vol.~IV, p.~99--100]{138}.}, and Poincaré's reasoning is quite different and much more circuitous. He observes that one can formulate both the interior and exterior Dirichlet problems as special cases of the problem which consists in finding a double layer poten tial \(W\) (for a density on \(\Sigma\)) such that, for \(s \in \Sigma\),
+\begin{equation}
+    \label{eq:3.38}
+    W(s^-) - W(s^+) - \lambda \left( W(s^-) + W(s^+) \right) = 2\Phi(s)
+\end{equation}
+where \(W(s^-)\) is the limit of \(W\) at \(s\) along the interior normal, \(W(s^+)\) its limit along the exterior normal, \(\lambda\) is a complex parameter and \(\Phi\) a given function on \(\Sigma\); the values \(\lambda = 1\) and \(\lambda = -1\) correspond respectively to the interior and the exterior Dirichlet problem. To this general problem Poincaré associates a new variational problem: for any simple layer potential \(\Psi\) defined by a density on \(\Sigma\), he considers the ratio \(J/J'\), where \(J\) is the Dirichlet integral \(\iiint (\grad \Psi)^2 d\omega\) extended over \(V\), and \(J'\) the integral of the same function, extended to the exterior of \(V\). The usual non rigorous arguments lead him to conjecture: 1° the existence of an increasing sequence \(0 = \lambda_0 \leq \lambda_1 \leq \ldots \leq \lambda_n \leq \ldots\) of eigenvalues, and: 2° for each \(\lambda_i\), the existence of a simple layer potential \(\Phi_i\), such that, on \(\Sigma\),
+\begin{equation}
+    \label{eq:3.39}
+    \pder{\Phi_i}{n}(s^-) + \lambda_i \pder{\Phi_i}{n}(s^+) = 0;
+\end{equation}
+in addition, for \(i \neq j, \iiint_V \grad(\Phi_i) \cdot \grad(\Phi_j) d\omega = 0\). Normalizing the \(\Phi_i\) by \(\iiint_V (\grad \Phi_i)^2 d\omega = 1\), he assumes that there is a Fourier expansion \(\Phi = \sum\limits_i c_i \Phi_i\) of the given function \(\Phi\) on \(\Sigma\), and ``solves'' the equation \eqref{eq:3.39} by
+\[
+    W(s^-) = \sum_i A_i \Phi_i(s), \qquad W(s^+) = -\sum_i \lambda_i A_i \Phi_i(s)
+\]
+with \(A_i = 2c_i / (1 + \lambda_i - \lambda (1 - \lambda_i))\).
 
-% QE
-% sets of V, so that it was impossible to give meaning to on
-% on the boundary Y, and to show that u was indeed a solu tion of the problem, The most interesting result in this attempt is that Poincaré, probably for the first time in his tory, arrives at the idea of "weak" solution of a boundary problem; he shows that his function u is such that, for any function which is 02 in V, one has
-% (37) J({[’ ubv dw + f(/ gvdo = f(/ (%E-+ hv)udo )M =
-% and adds that "physically" this is equivalent to a genuine
-% solution,
-% The last of the three long papers of Poincaré on partial differential equations was witten in 1895 ([177], vol.IX, P.202-272)., Although it is the one which contains the smal lest number of new results, it probably had a greater influ ence than the others. From his work both on the Dirichlet problem and on the equation of vibrating membranes, Poincaré had become convinced that there were also "eigenvalues" and "eigenfunctions" linked to the Dirichlet problem, For us this is completely obvious, for if we look for a solution of Au =0
+All this is of course presented by Poincaré as purely conjectural, and as a motivation for his detailed study (by methods inspired by those of Schwarz) of the ratio \(J/J'\), which forms the central part of his 1896 paper; but the only positive result he is able to deduce from his study is that the Beer--Neumann series (Chap. \ref{ch:2}, \ref{sec:2.4}) converges, not only for convex domains \(V\), but also for domains \(V \subset \R^3\) having the following property: when \(\R^3\) is imbedded in the 3-dimensional sphere \(\Sph_3\) by adjoining a point at infinity, \(V\) can be transformed into a ball by a homeomorphism of \(\Sph_3\) onto itself, leaving fixed the point at infinity, and which is \(C^2\) in \(\Sph_3\) as well as the inverse homeomorphism\footnote{Without the slightest justification, Poincaré claims as ``clear'' the fact that this property holds for \emph{any} bounded domain \(V\) such that the boundary \(\Sigma\) is a smooth simply connected surface (\cite{177}, vol.~IX, p.~223--224). With the tools of modern Differential Topology, it is now possible to prove that theorem. But in 1895, Poincaré was just beginning to formulate the first notions of that theory, and one wonders if he realized the difficulties which lay in the way of a rigorous proof if he had tried to write it down (when smoothness conditions on \(\Sigma\) and on the homeomorphism are dropped, the result is known to be false, a counterexample being the famous ``Alexander horned sphere'').}.
 
-% 68 CHAPTER IIT
-% taking given values on the boundary ¥ of V, we extend the function g given on Y to a 02 function h in V (when this is possible); replacing u by v = u-h, we have to find
-% a solution of Av + f = O, with f = Ah, which vanishes on Y, and this is just the special case of Schwarz's problem for the equation (31) with £ = O,
-% At that time, however, nobody had yet thought of this simple argument and Poincaré's reasoning is quite different and
-% (%)
-% much more circuitous, He observes that one can formulate both the interior and exterior Dirichlet problems as special cases
-% of the problem which consists in finding a double layer poten tial W (for a density on I£) such that, for s € I, (38) W(sT) - W(sT) - A(W(sT) + W(sT)) = 28(s)
-% where W(s) is the limit of W at s along the interior normal, W(s') its limit along the exterior normal, A is a complex parameter and ¢ a given function on }; the values A =1 and )\ = =1 correspond respectively to the interior and the exterior Dirichlet problem, To this general problem Poincaré associates a new variational problem: for any simple layer potential VY defined by a density on 3, he considers
-% the ratio J/J’, where J is the Dirichlet integral rf[(grad Y)Z dw extended over V, and J’ the integral of the same function, extended to the exterior of V., The usual non rigorous arguments lead him to conjecture: 1?2 the existence
-% ( )It is explicitly mentioned in 1909 by E.E. Levi [145, vol,
-% *
-% IT, p.302-313]; the first statement and proof of the existen ce of a continuous function in the whole space R extending a given function defined and continuous in a closed subset (l;g, what we now call the Tietze-Urysohn theorem) is due to Lebesgue in 1907 [138, vol.IV, p.99-100].
-% THE EQUATION OF VIBRATING MEMBRANES 69
-% of an increasing sequence O = Xo < Kl Seees Xn L eee of eigenvalues, and: 29 for each xi’ the existence of a simple layer potential @i, such that, on X,
-% (39) 3n (S ) + >\i anl(s+) = O3
-
-% i
-% i 3%
-
-% in addition, for i#j, f({ grad(@i)°grad(@j)dw = 0, Nor malizing the @i by [Jf (grad @i) dW = 1, he assumes that
-% V2
-% Vv
-% there is a Fourier expansion ¢ = % Ci@i of the given func i
-% tion & on X, and "solves" the equation (38) by WisTM) = X Ai@i(s), w(s') = - z A.A.5. (s)
-% 1 1 1
-% with A, = 201/(1+xi-x(1-xi)).
-% All this is of course presented by Poincaré as purely con jectural, and as a motivation for his detailed study (by methods inspired by those of Schwarz) of the ratio J/J’, which forms the central part of his 1896 paper; but the only positive result he is able to deduce from his study is that the Beer--Neumann series (Chap.II, 4) converges, not only for convex domains V, but also for domains VC R having the
-% 3
-% following property: when R3 is imbedded in the 3-dimensio nal sphere SB by adjoining a point at infinity, V can be transformed into a ball by a homeomorphism of  onto itself, 32 leaving fixed the point at infinity, and which is C in 3 3 *
-% as well as the inverse homeomorphism( ).
-% (*)Without the slightest justification, Poincaré claims as "clear" the fact that this property holds for any bounded do main V such that the boundary ¥ is a smooth simply connected surface ([177],vol.IX,p.223-224), With the tools of modern Dif rential Topology, it is now possible to prove that theorem, But in 1895, Poincaré was just beginning to formulate the first notions of that theory, and one wonders if he realized the dif ficulties which lay in %he way of a rigorous proof if he had tried to write it down (when smoothness conditions on ¥ and on the homeomorphism are dropped, the result is known to be false, a counterexample being the famous "Alexander horned sphere'").
-% 70 CHAPTER TIIT
-% Almost immediately after the publication of Poincaré's papers,
-% several mathematicians were able to complete and extend his results, In 1898, E., Le Roy [ 144] proved the existence of the simple layer potentials . conjectured by Poincaré in his 1896 paper; he replaced the ratio J/J’ by (J+J')/I, where I 1is the surface integral .{{ p do, P Dbeing the density
-% 2
-% )Y
-% on ¥ corresponding to the simple layer potential Y, and
-% adapted the methods of Schwarz and Poincaré to the correspond ing variational problem, In 1899, S, Zaremba [232], by a mo dification of the method of solution of Neumann's problem used by Poincaré, could complete the latter's solution of the
-% "cooling off" problem, proving that the "weak" solution of Poincaré was a genuine one. In 1901, Zaremba and W. Stekloff,
-% independently, finally showed that one could drop the global topological property of the domain V which Poincaré and Le Roy had used, and even weaken the "smoothness" conditions on X3 they made essential use of a paper of Liapounoff publish
-% ed 3 years earlier [147], in which he was able to prove the existence of the normal derivative on Y of the solution of Dirichlet'!s problem under these less stringent conditions,
+Almost immediately after the publication of Poincaré's papers, several mathematicians were able to complete and extend his results. In 1898, E. Le Roy \cite{144} proved the existence of the simple layer potentials \(\Phi_i\) conjectured by Poincaré in his 1896 paper; he replaced the ratio \(J/J'\) by \((J+J')/I\), where \(I\) is the surface integral \(\iint_\Sigma \rho^2 d\sigma, \rho\) being the density on \(\Sigma\) corresponding to the simple layer potential \(\Psi\), and adapted the methods of Schwarz and Poincaré to the correspond ing variational problem. In 1899, S. Zaremba \cite{232}, by a modification of the method of solution of Neumann's problem used by Poincaré, could complete the latter's solution of the ``cooling off'' problem, proving that the ``weak'' solution of Poincaré was a genuine one. In 1901, Zaremba and W. Stekloff, independently, finally showed that one could drop the global topological property of the domain \(V\) which Poincaré and Le Roy had used, and even weaken the ``smoothness'' conditions on \(\Sigma\); they made essential use of a paper of Liapounoff published 3 years earlier \cite{147}, in which he was able to prove the existence of the normal derivative on \(\Sigma\) of the solution of Dirichlet's problem under these less stringent conditions.
 
 \chapter{The idea of infinite dimension}
 \label{ch:4}
