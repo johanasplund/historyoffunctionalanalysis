@@ -69,8 +69,9 @@
 \renewcommand{\cftchapfont}{\bfseries\scshape}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
+\addtolength{\footnotesep}{1em} % add vertical space between footnotes
 \renewcommand\footnotemargin{\parindent} % footnote text aligned with text margin
-\addtolength{\footnotesep}{1mm} % add vertical space between footnotes
+\renewcommand*{\footnotelayout}{\normalsize}
 
 \renewcommand{\arraystretch}{1.2}
 \renewcommand{\thechapter}{\Roman{chapter}}
