@@ -6,6 +6,8 @@
 % - add space before and after arguments of operators like cos/sin as in the original book
 % - in sections 2.3, 4.1 there are multiple footnotes with the same (*) mark on the same page
 % - the integrals in text mode are not exactly the same as those in math mode, while Diuedonné wrote them with the same symbol at the same height
+% - substitute all \frac{\partial #1}{\partial #2} with \pder
+% - substitute all divergences with \divergence
 
 \documentclass[12pt,a4paper,leqno,twoside]{extbook}
 
@@ -67,8 +69,14 @@
 \renewcommand{\thesection}{§\arabic{section}}
 
 \newcommand{\mytodo}[1]{\todo[inline]{TODO: #1}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ker}{\operatorname{Ker}}
 \newcommand{\supth}{\texorpdfstring{\textsuperscript{th}}{th}}
 \newcommand{\sub}[1]{\texorpdfstring{\textsubscript{#1}}{#1}}
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\divergence}[1]{\left(\pder{#1}{x}\right)^2 + \left(\pder{#1}{y}\right)^2 + \left(\pder{#1}{z}\right)^2}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 \allowdisplaybreaks
 \frenchspacing
@@ -864,28 +872,33 @@ with the boundary conditions: \(v_0 = 1\) on \(\Gamma\) and \(v_n = 0\) on \(\Ga
 \section{The contributions of Poincaré}
 \label{sec:3.2}
 
-% In 1890, H, Poincaré published in the American Journal of Mathematics a long paper developing some of his research done
-% since 1887, which had been announced in three Comptes-Rendus Notes ([177], vol.IX, p.15-113), The paper consists of two completely independent parts; in the first, he describes in
-% detail his "sweeping-out" method for the solution of the Di richlet problem (Chap. II, 4). The second part is devoted to the cooling off problem in the theory of heat, which had been treated by Fourier in some particular cases, for instance
-% the cooling off of a sphere when the temperature is a function of the distance to the center (Chap.I, 2). The general
-% cooling off problem had been presented by Fourier in the fol lowing form: given a solid body V of constant density, diso=-
-% tropic for the propagation of radiations, one has to find the temperature u(x,y,z,t) dinside V, as a function of the coordinates x, y, 2z and the time +t, when the outside tem perature is O, Fourier shows that the function u must sa (21) | = aZAu o/ <t
-% tisfy inside V an equation (where a is constant) Lo)4c
-% and in addition is subject to the boundary condition on the
-% THE EQUATION OF VIBRATING MEMBRANES 57 (22) %% + hu = 0
-% surface Y of V
-% where is the normal derivative (towards the exterior)
-% (674 u
-% on
-% and h is a constant = O (see Chap.IV, 4). The usual method of "separation of wvariables" led to solutions of the -xazt form u(x,y,z,t) = e v(x,y,2), where v should be a (23) Av + Av = O
-% solution of the Helmholtz equation
-% with a different boundary condition from the one deriving from the equation of vibrating membranes, namely (24) — + hv = O on e
-% In his 1869 paper, H., Weber had also cousidered that problem, but he had only described his variational method to obtain eigenvalues and eigenfunctions for the particular case h=0, Poincaré apparently was unaware of Weber's paper and never mentioned it in his own work; what he does in 1890 is first to repeat Weber's arguments for the general boundary condi tion (24), replacing the Dirichlet integral by the function (25) F(v) = hU v?do 4” (&% + &H° 4 EH ). z V
-% Having thus obtained an increasing infinite sequence (Xn) of eigenvalues and the corresponding sequence (Vn) of eigen functions, Poincaré is of course aware of the non rigorous character of his "proof"; however, having for the time being
-% no better arguments at his disposal, he takes for granted the existence of kn and Voo and proceeds to study them in more
-% 58 CHAPTER III
-% detail, and in the first place to prove that the sequence (Xn) tends to +o, a question which Weber had not been able to answer, In his attack on that problem, it is quite remarkable to see Poincaré introducing a whole batch of completely new ideas, 1In the first place, he considers the eigenvalues as functions xn(h,V) of the constant h and the domain V and begins to study the way in which they depend on h and V, a trend of thought which will later blossom in the work of
-% H, Weyl and R, Courant, and even now has not entirely lost its interest., Poincaré first shows that, for V fixed, Xn(h,V) is increasing with h, by an application of Green's formula to the eigenfunctions vn(h,V), vn(h’,V) corresponding to two values of hj; as he wants to prove that xn(h,V) tends to +o, he can assume that h = O, which implies that r,(0,V) = 0 and v,(0,V) is a constant.
+In 1890, H. Poincaré published in the American Journal of Mathematics a long paper developing some of his research done since 1887, which had been announced in three Comptes-Rendus Notes (\cite{177}, vol.~IX, p.15--113). The paper consists of two completely independent parts; in the first, he describes in detail his ``sweeping-out'' method for the solution of the Dirichlet problem (Chap. \ref{ch:2}, \ref{sec:2.4}). The second part is devoted to the \emph{cooling off} problem in the theory of heat, which had been treated by Fourier in some particular cases, for instance the cooling off of a sphere when the temperature is a function of the distance to the center (Chap. \ref{ch:1}, \ref{sec:1.2}). The \emph{general} cooling off problem had been presented by Fourier in the following form: given a solid body \(V\) of constant density, isotropic for the propagation of radiations, one has to find the temperature \(u(x,y,z,t)\) inside \(V\), as a function of the coordinates \(x, y, z\) and the time \(t\), when the outside temperature is 0. Fourier shows that the function \(u\) must satisfy inside \(V\) an equation (where \(a\) is constant)
+\begin{equation}
+    \label{eq:3.21}
+    \frac{\partial u}{\partial t} = a^2 \Delta u
+\end{equation}
+and in addition is subject to the boundary condition on the surface \(\Sigma\) of \(V\)
+\begin{equation}
+    \label{eq:3.22}
+    \frac{\partial u}{\partial n} + hu = 0
+\end{equation}
+where \(\frac{\partial u}{\partial n}\) is the normal derivative (towards the exterior) and \(h\) is a constant \(\geq 0\) (see Chap. \ref{ch:4}, \ref{sec:4.4}). The usual method of ``separation of wvariables'' led to solutions of the form \(u(x,y,z,t) = e^{-\lambda a^2 t} v(x,y,z)\), where \(v\) should be a solution of the Helmholtz equation
+\begin{equation}
+    \label{eq:3.23}
+    \Delta v + \lambda v = 0
+\end{equation}
+with a \emph{different} boundary condition from the one deriving from the equation of vibrating membranes, namely
+\begin{equation}
+    \label{eq:3.24}
+    \frac{\partial v}{\partial n} + hv = 0 \quad \text{on } \Sigma.
+\end{equation}
+In his 1869 paper, H. Weber had also cousidered that problem, but he had only described his variational method to obtain eigenvalues and eigenfunctions for the particular case \(h=0\). Poincaré apparently was unaware of Weber's paper and never mentioned it in his own work; what he does in 1890 is first to repeat Weber's arguments for the general boundary condition \eqref{eq:3.24}, replacing the Dirichlet integral by the function
+\begin{equation}
+    \label{eq:3.25}
+    F(v) = h\iint_\Sigma v^2 d\sigma + \iiint_V \left(\divergence{v}\right)d\omega.
+\end{equation}
+Having thus obtained an increasing infinite sequence \(\left(\lambda_n\right)\) of eigenvalues and the corresponding sequence \(\left(v_n\right)\) of eigenfunctions, Poincaré is of course aware of the non rigorous character of his ``proof''; however, having for the time being no better arguments at his disposal, he takes for granted the existence of \(\lambda_n\) and \(v_n\) and proceeds to study them in more detail, and in the first place to prove that the sequence \(\left(\lambda_n\right)\) tends to \(+\infty\), a question which Weber had not been able to answer. In his attack on that problem, it is quite remarkable to see Poincaré introducing a whole batch of \emph{completely new ideas}. In the first place, he considers the eigenvalues as functions \(\lambda_n(h, V)\) of the constant \(h\) and the domain \(V\) and begins to study the way in which they \emph{depend} on \(h\) and \(V\), a trend of thought which will later blossom in the work of H. Weyl and R. Courant, and even now has not entirely lost its interest. Poincaré first shows that, for \(V\) fixed, \(\lambda_n(h, V)\) is increasing with \(h\), by an application of Green's formula to the eigenfunctions \(v_n(h, V), v_n(h', V)\) corresponding to two values of \(h\); as he wants to prove that \(\lambda_n(h, V)\) tends to \(+\infty\), he can assume that \(h = 0\), which implies that \(\lambda_1(0, V) = 0\) and \(v_1(0, V)\) is a constant.
+
 % The second idea is to decompose V dinto a union of smaller solids Vl’V2’°°°’Vp; the variational definition of Xn enables him to prove that if p < n-1, Xn(O,V) is at least equal to the smallest of the numbers XZ(O,Vl), \ldots,XZ(O,VP). Poincaré is thus led to minorize xz(O,V) by a number depend ing only on the geometry of V3; by definition (since h = O), (26) ‘ff( v dw
 % this means finding a lower bound of the expression 3V, 2 3V, 2 dv, 2 fffi((g;g + (ay + (37) )aw
 % 2
