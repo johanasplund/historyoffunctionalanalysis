@@ -1961,62 +1961,57 @@ These features would be still more conspicuous in the theory of \(L^p\) and \(l^
 \section{The \protect{\(L^p\)} and \protect{\(l^p\)} spaces}
 \label{sec:6.2}
 
-% Once the L2 spaces had been defined, it was a natural ge neralization to define similarly the function spaces Lp(I) for any interval I € R, as the set of all complex wvalued measurable functions f defined in I and such that |f|P is integrable, for any p > O (two functions being idegtified if they are almost everywhere equal). The study of these spaces was begun by F. Riesz in a fundamental paper ([183], vol.I, p.4h1-497), second only in importance for the develop=- ment of Functional Analysis to Hilbert's 1906 paper (chap.V, 2).
-% Riesz limited himself from the start to the casze p > 1, in n 1 n 1/q (&) | = /p( X |bk|q) / for = + 1 1
-% - k=1 P d
-% order to be able to use the H8lder and Minkowski inequalities
-% n
-% a,b. | s (2 |a|P) k= 1 k- k k=1 k
-% (5) (% |a+b PP n D 1 n
-% k=1 k=1 k
-% < (3 Iakl ) + (= Ib
-% which he first extended to measurable functions, showing that if fe LP(1), g¢ L9(1T) then fg is integrable and T )I T
-% (6) | £(x)e(x)ax| < (f'|f(x)|pdx)l/p<f'Ig(x)lqu)l/q,
+Once the \(L^2\) spaces had been defined, it was a natural generalization to define similarly the function spaces \(L^p(I)\) for any interval \(I \in R\), as the set of all complex valued measurable functions \(f\) defined in \(I\) and such that \(|f|^p\) is integrable, for any \(p > 0\) (two functions being identified if they are almost everywhere equal). The study of these spaces was begun by F. Riesz in a fundamental paper (\cite{183}, vol.~I, p.~441--497), second only in importance for the development of Functional Analysis to Hilbert's 1906 paper (chap. \ref{ch:5}, \ref{sec:5.2}).
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 125
-% and that if f € LP(x), ge LP(1), then fige LP(1I) and (7) (flf(><)+g(x)lpdx)l/p < If(X)Ipcl><)l/p+((|g(x)IPdX)l/p :
-% I I I
-% (8) {- f(x)gd(x)dx = ¢,
-% His central theme is the study of infinite systems of linear equations
-% I
-% where the gd belong to Lq(I) and one looks for a solution fc Lp(I); this may be considered as the generalization of the problem E, Schmidt had treated in LZ, due to the Fischer=- Riesz theorem (chap.V, 3, equations (42)). In order to adapt Schmidt's method to this problem, F. Riesz begins by extend
-% ing a number of definitions and results from the theory of Hilbert space: strong convergence of a sequence (fn) of functions of LP(I) to f € LP(I) 4is defined as meaning that ( If(x)-fn(x)|pdx tends to O. For weak convergence, he
-% IX X a a
-% first takes as definition that ( £ (t)dt tends to ('f(t)dt
-% for all numbers x € I; and although he proves a little later that this definition 4is equivalent to the fact that the inte grals (' (f(x)-fn(x))g(x)dx tend to O for all g € L9(1), T
-% he essentially uses the first definition to prove the genera lization of Hilbert's "principle of choice" (i.e. the weak compactness of the unit ball in Lp(I)), which will be one of his main ingredients in the solution of (8). The other in gredient is derived from a result obtained by E. Landau in
-% 1907 [136]; in 1906, Hellinger and Toeplitz had shown that if a sequence (a) is such that the series 3 a x is conver n
+Riesz limited himself from the start to the casze \(p > 1\), in order to be able to use the Hölder and Minkowski inequalities
+\begin{equation}
+    \label{eq:6.4}
+    \left| \sum_{k=1}^n a_k b_k \right| \leq \left( \sum_{k=1}^n |a_k|^p \right)^{1 / p} \left( \sum_{k=1}^n |b_k|^q \right)^{1 / q} \quad \text{for } \frac{1}{p} + \frac{1}{q} = 1
+\end{equation}
+\begin{equation}
+    \label{eq:6.5}
+    \left( \sum_{k=1}^n |a_k + b_k|^p \right)^{1 / p} \leq \left( \sum_{k=1}^n |a_k|^p \right)^{1 / p} + \left( \sum_{k=1}^n |b_k|^p \right)^{1 / p}
+\end{equation}
+which he first extended to measurable functions, showing that if \(f \in L^p(I), g \in L^q(I)\) then \(fg\) is integrable and
+\begin{equation}
+    \label{eq:6.6}
+    \left| \int_I f(x)g(x)dx \right| \leq \left( \int_I |f(x)|^p dx \right)^{1 / p} \left( \int_I |g(x)|^q dx \right)^{1 / q},
+\end{equation}
+and that if \(f \in L^p(I), g \in L^p(I)\), then \(f + g \in L^p(I)\) and
+\begin{equation}
+    \label{eq:6.7}
+    \left( \int_I |f(x) + g(x)|^p dx \right)^{1 / p} \leq \left( \int_I |f(x)|^p dx \right)^{1 / p} + \left( \int_I |g(x)|^p dx \right)^{1 / p}.
+\end{equation}
 
-% 126 CHAPTER VI
-% gent for all sequences (xn) in Lz, then (an) itself be longed to LZ (106]; Landau proved that, more generally, if a x_ 1is convergent for all sequences (xn) such that B8TMM PM < +o, then 7 |an|q < 4o, Approximating functions
-% n
-% of Lp by functions having only denumerably many values, F. Riesz deduced from Landau's result that if, for a measurable function g, the product fg idis dintegrable for all functions f € Lp, then necessarily g € L4,
-% His solution of (8) then proceeds along the same lines as E. Schmidt; he starts with a finite system (8), for which, using the standard method of analysis (Lagrange multipliers) he proves the existence and uniqueness of a solution f € Lp for which '( |f(x)|pdx is minimum. The problem is then to /I
-% find a necessary and sufficient condition on the Ca such that, when one picks from (8) a finite system corresponding to the indices @ in an arbitrary finite subsecv H, the cor responding minima M, of the integral f’ |f(x)|pdx taken for the "minimal" solutions, are uniformly bounded (independ ently of H); the use of the two ingredients mentioned above then leads to the existence of a solution of (8) by an argument similar to E, Schmidt's. Of course, an explicity expression of My, (similar to formula (43) of chap.V, 3) is not availa ble here, and the originality of F. Riesz lies in having found a completely different type of condition, namely the ce¢xistence
-% of a number M > O such that, for any finite subset H of indices, and any family (xg) of scalars, one has the ine o}
-% quality
+His central theme is the study of infinite systems of linear equations
+\begin{equation}
+    \label{eq:6.8}
+    \int_I f(x)g_\alpha(x)dx = c_\alpha
+\end{equation}
+where the \(g_\alpha\) belong to \(L^q(I)\) and one looks for a solution \(f \in L^p(I)\); this may be considered as the generalization of the problem E. Schmidt had treated in \(l^2\), due to the Fischer--Riesz theorem (chap. \ref{ch:5}, \ref{ch:5.3}, equations (42)). In order to adapt Schmidt's method to this problem, F. Riesz begins by extending a number of definitions and results from the theory of Hilbert space: strong convergence of a sequence \((f_n)\) of functions of \(L^p(I)\) to \(f \in L^P(I)\) is defined as meaning that \( \int_I |f(x)-f_n(x)|^p dx\) tends to 0. For weak convergence, he first takes as definition that \(\int_a^x f_n(t)dt\) tends to \(\int_a^x f(t)dt\) for all numbers \(x \in I\); and although he proves a little later that this definition is equivalent to the fact that the integrals \(\int_I (f(x)-f_n(x))g(x)dx\) tend to 0 for \emph{all} \(g \in L^q(I)\), he essentially uses the first definition to prove the genera lization of Hilbert's ``principle of choice'' (\emph{i.e.} the weak compactness of the unit ball in \(L^p(I)\)), which will be one of his main ingredients in the solution of \eqref{eq:6.8}. The other ingredient is derived from a result obtained by E. Landau in 1907 \cite{136}; in 1906, Hellinger and Toeplitz had shown that if a sequence \((a_n)\) is such that the series \(\sum\limits_n a_n x_n\) is convergent for \emph{all} sequences \((x_n)\) in \(l^2\), then \((a_n)\) itself be longed to \(l^2\) \cite{106}; Landau proved that, more generally, if \(\sum\limits_n a_n x_n\) is convergent for all sequences \(x_n\) such that \(\sum\limits_n |x_n|^p < +\infty\), then \(\sum\limits_n |a_n|^q < +\infty\). Approximating functions of \(L^p\) by functions having only denumerably many values, F. Riesz deduced from Landau's result that if, for a measurable function \(g\), the product \(fg\) is integrable for all functions \(f \in L^p\), then necessarily \(g \in L^q\).
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 127 1/q (9) | = A.c | = Mo L |a_e (x)]%ax) . €U a o . cH a
-% Fo. Riesz in particular applies this conditions to the special case in which the g, are all the functions of Lq(I); (9) is then equivalent to the continuity in 1.9 of the linear functional [ defined by L(gd) = ¢C g’, and he has thus gene ralized his previous results on LZ and C(I), proving what we would now express by the statement that the dual of LI(I) can be identified with LP(1),
-% Of course the name "dual" is not yet used by F, Riesz, but P . . . .y P
-% he explicitly considers, for a "bounded" linear mapping T of LY dinto itself (defined by the condition that |T(£)(x)]| ax remains bounded for all £ sch that ghlf(x)|pdx < 1), the
-% I
-% T
-% transposed mapping T’ defined by the equation
-% (10) g.T(f)(x)g(x)dx = f(x)T’' (g)(x)dx for all f ¢ Lp(I).
-% I I \
-% Indeed, for a function g € L3(I), this defines (up %o a null set) a unique function T'(g), which (by F. Riesz's previous results) also belongs to Lq(I); furthermore, it is easy to show that the mapping T’ of LY into itself is also linear and "bounded"., F. Riesz then used this concept to obtain a necessary and sufficient condition for the mapping T to be bijective: he showed that such a condition is the existence of a number m > O such that both inegqualities
-% T T
-% ( IT(£)(x)|Pax = me {ilf(x)lpdx
+His solution of \eqref{eq:6.8} then proceeds along the same lines as E. Schmidt; he starts with a finite system \eqref{eq:6.8}, for which, using the standard method of analysis (Lagrange multipliers) he proves the existence and uniqueness of a solution \(f \in L^p\) for which \(\int_I |f(x)|^p dx\) is minimum. The problem is then to find a necessary and sufficient condition on the \(c_\alpha\) such that, when one picks from \eqref{eq:6.8} a finite system corresponding to the indices \(\alpha\) in an arbitrary finite subset \(H\), the corresponding minima \(M_H\) of the integral \(\int_I |f(x)|^p dx\) taken for the ``minimal'' solutions, are \emph{uniformly bounded} (independently of \(H\)); the use of the two ingredients mentioned above then leads to the existence of a solution of \eqref{eq:6.8} by an argument similar to E. Schmidt's. Of course, an explicity expression of \(M_H\) (similar to formula \eqref{eq:5.43} of chap. \ref{ch:5}, \ref{sec:5.3}) is not available here, and the originality of F. Riesz lies in having found a completely different type of condition, namely the existence of a number \(M > 0\) such that, for \emph{any} finite subset \(H\) of indices, and \emph{any} family \((\lambda_\alpha)_{\alpha in H}\) of scalars, one has the inequality
+\begin{equation}
+    \label{eq:6.9}
+    \left| \sum_{\alpha \in H} \lambda_\alpha c_\alpha \right| \leq M \cdot \left( \int_I \, \sum_{\alpha \in H} |\lambda_\alpha g_\alpha(x)|^q dx \right)^{1 / q}.
+\end{equation}
 
-% (11)
-% T T
-% ( T’ (&) (x) ] %ax > m-f | &(x)]%ax
+F. Riesz in particular applies this conditions to the special case in which the \(g_\alpha\) are \emph{all} the functions of \(L^q(I)\); \eqref{eq:6.9} is then equivalent to the \emph{continuity} in \(L^q\) of the linear functional \(L\) defined by \(L(g_\alpha) = c_\alpha\), and he has thusgene ralized his previous results on \(l^2\) and \(\Cont(I)\), proving what we would now express by the statement that \emph{the dual of} \(L^q(I)\) \emph{can be identified with} \(L^p(I)\).
 
-% 128 CHAPTER VI
-% are satisfied for all f € LP(I) and a1l g ¢ L9(1). F. Riesz had thus given, for the first time, examples of what
-% we now call reflexive Banach spaces not isomorphic to their dual(*). In his 1913 book on infinite systems of linear
-% equations ([183], vol.II, p.835-1016 and [184]) he treated in a similar way the Lp spaces for p > 1 (defined as the set of sequences (xn) of complex numbers such that E lxnlp < 4w); in addition he stated without proof that for p # 2, nNo iso= morphism of Lp and Lp existed any more, in contradistinct ion to the Fischer-Riesz theorem (ibid. Vol.I, p.4ih-lLlL5),
+Of course the name ``dual'' is not yet used by F. Riesz, but he explicitly considers, for a ``bounded'' linear mapping \(T\) of \(L^p\) into itself (defined by the condition that \(\int_I |T(f)(x)|^p dx\) remains bounded for all \(f\) such that \(\int_I |f(x)|^p dx < 1\)), the \emph{transposed} mapping \(T'\) defined by the equation
+\begin{equation}
+    \label{eq:6.10}
+    \int_I T(f)(x)g(x)dx = \int_I f(x)T'(g)(x)dx \quad \text{for \emph{all} } f \in L^p(I).
+\end{equation}
+Indeed, for a function \(g \in L^q(I)\), this defines (up to a null set) a unique function \(T'(g)\), which (by F. Riesz's previous results) also belongs to \(L^q(I)\); furthermore, it is easy to show that the mapping \(T'\) of \(L^q\) into itself is also linear and ``bounded''. F. Riesz then used this concept to obtain a necessary and sufficient condition for the mapping \(T\) to be \emph{bijective}: he showed that such a condition is the existence of a number \(m > 0\) such that \emph{both} inequalities
+\begin{equation}
+    \label{eq:6.11}
+    \begin{gathered}
+    \int_I |T(f)(x)|^p dx \geq m \cdot \int_I |f(x)|^p dx \\
+    \int_I |T'(g)(x)|^q dx \geq m \cdot \int_I |g(x)|^q dx
+    \end{gathered}
+\end{equation}
+are satisfied for all \(f \in L^p(I)\) and all \(g \in L^q(I)\). F. Riesz had thus given, for the first time, examples of what we now call \emph{reflexive} Banach spaces not isomorphic to their dual\footnote{The dual of \(L^1(I)\) for a compact interval \(I \in \R\) was shown to be isomorphic to \(L^\infty(I)\) by H. Steinhaus \cite{202}; he uses the fact that in that case \(L^2(I) \subset L^1(I)\), and therefore a continuous linear functional on \(L^1(I)\) is also continuous on \(L^2(I)\).}. In his 1913 book on infinite systems of linear equations (\cite{183}, vol.~II, p.~835--1016 and \cite{184}) he treated in a similar way the \(l^p\) spaces for \(p > 1\) (defined as the set of sequences \((x_n)\) of complex numbers such that \(\sum\limits_n |x_n|^p < +\infty\)); in addition he stated without proof that for \(p \neq 2\), no isomorphism of \(l^p\) and \(L^p\) existed any more, in contradistinction to the Fischer--Riesz theorem (\emph{ibid}. Vol.~I, p.~444-445).
 
 \section{The birth of normed spaces and the Hahn--Banach theorem}
 \label{sec:6.3}
