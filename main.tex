@@ -2016,137 +2016,84 @@ are satisfied for all \(f \in L^p(I)\) and all \(g \in L^q(I)\). F. Riesz had th
 \section{The birth of normed spaces and the Hahn--Banach theorem}
 \label{sec:6.3}
 
-% In 1911, F, Riesz combined his methods for the treatment of the system (8) in LP with the Hadamard-Riesz theorem on 1i near functionals in C([a,b]) in order to study the systems (12) gy (*)E(x) = ¢
-% of linear equations
-% b
-% a
-% where [a,b] idis a compact interval in R, the g, are con tinuous in [a,b], the ¢ are given scalars, and one has Q to determine a function £ of bounded variation in [a,b] satisfying the equations (12) for all o. This may be consi dered as a generalization of a problem which had first been
-% ( )The dual of Ll(I) for a compact interval I € R was shown
-% *
-% to be isomorphic to L®(I) by H. Steinhaus [202]; he uses the ffact that in that case L2(I) c Ll(I), and therefore a contin uous linear functional on L (I) is also continuous on LZ(I).
+In 1911, F. Riesz combined his methods for the treatment of the system \eqref{eq:6.8} in \(L^p\) with the Hadamard--Riesz theorem on linear functionals in \(\Cont([a,b])\) in order to study the systems of linear equations
+\begin{equation}
+    \label{eq:6.12}
+    \int_a^b g_\alpha(x)d\xi(x) = c_\alpha
+\end{equation}
+where \([a,b]\) is a compact interval in \(\R\), the \(g_\alpha\), are continuous in \([a,b]\), the \(c_\alpha\) are given scalars, and one has to determine a function \(\xi\) of bounded variation in \([a,b]\) satisfying the equations \eqref{eq:6.12} for all \(\alpha\). This may be considered as a generalization of a problem which had first been proposed and solved by T. Stieltjes in 1894, the ``moment problem'': it consists in determining an increasing function \(\xi\) in \([0,+\infty[\) such that
+\begin{equation}
+    \label{eq:6.13}
+    \int_0^\infty x^n d\xi(x) = c_n \geq 0 \quad \text{for } n = 0,1,2,\ldots
+\end{equation}
+(the left hand sides are called the ``moments'' of the function \(\xi\), a terminology stemming from probability theory) \cite{205}; the same problem was later considered when the interval \([0,+\infty[\) is replaced by \(]-\infty, +\infty[\) (the ``Hamburger moment problem'') or by a compact interval \([a,b]\) (the ``Hausdorff moment problem'') \cite{003}.
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 129
-% proposed and solved by T. Stieltjes in 1894, the "moment prob lem": it consists in determining an increasing function  in [0,+o[ such that
-% (13) | xdg(x) =c 20 for =n=0,1,2, \ldots
-% (" n
-% /0O
-% (the left hand sides are called the "moments" of the function £, a terminology stemming from pfobab?lity theory) [ 205] ;
-% the same problem was later considered when the interval [0, +[ is replaced by ] -w,+o0[ (the "Hamburger moment problem") or by a compact interval [a,b] (the "Hausdorff moment problem") (3]
-% The solutions to these "moment problems" consist in giving explicit conditions on the ch involving existence (or exis tence and uniqueness) of the function & (or rather of the measure df ). The condition given by F, Riesz for the exis tence of a solution £ of the general system (12) is similar to condition (9), namely the existence of a number M > O such that, for any finite family (XQ)QGH of scalars, one has (14) S A.c.| € Mesup | = A& (x)] ; laEH o G x e & ° ’
-% (he explicitly observed that the right hand side of this ine quality is the limit of the right hand side of (9) when ¢ tends to +»). His proof is similar to the proof for (8); he first restricts himself to the case of finite systems (12), obtains the existence of a "minimal" solution of such a system, and then, using a "principle of choice" (in our language, the weak compactness of the unit ball in the space of Stieltjes measures), he shows that the condition (14) is sufficient for
+The solutions to these ``moment problems'' consist in giving explicit conditions on the \(c_n\) involving existence (or existence and uniqueness) of the function \(\xi\) (or rather of the measure \(d\xi\)). The condition given by F. Riesz for the existence of a solution \(\xi\) of the general system \eqref{eq:6.12} is similar to condition \eqref{eq:6.9}, namely the existence of a number \(M > 0\) such that, for any finite family \((\lambda_\alpha)_{\alpha \in H}\) of scalars, one has
+\begin{equation}
+    \label{eq:6.14}
+    \left| \sum_{\alpha \in H} \lambda_\alpha c_\alpha \right| \leq M \cdot \sup_x \left| \sum_{\alpha \in H} \lambda_\alpha g_\alpha(x) \right|;
+\end{equation}
+(he explicitly observed that the right hand side of this inequality is the limit of the right hand side of \eqref{eq:6.9} when \(q\) tends to \(+\infty\)). His proof is similar to the proof for \eqref{eq:6.8}; he first restricts himself to the case of finite systems \eqref{eq:6.12}, obtains the existence of a ``minimal'' solution of such a system, and then, using a ``principle of choice'' (in our language, the weak compactness of the unit ball in the space of Stieltjes measures), he shows that the condition \eqref{eq:6.14} is sufficient for an arbitrary system  \eqref{eq:6.12}; his procedure is more complicated than for  \eqref{eq:6.8}, because even in the case of a finite system \eqref{eq:6.12}, there is no more uniqueness for the ``minimal'' solutions (\cite{183}, vol.~II, p.~798--827).
 
-% 130 CHAPTER VI
-% an arbitrary system (12); his procedure is more complicated than for (8), because even in the case of a finite system (12), there is no more uniqueness for the "minimal" solutions ([183L
-% a aQ . o a &
-% We now interpret condition (9) in the following wav: first, if ¥ Ag =0 in 19(I), then T A_c, = O; this implies that, if F is the vector subspace of Lq(I) generated by the ga, there is a well determined linear form L defined in F such that L(g@) = Cy for every @. Condition (9) then means that this linear form L 1is continuous in Fj the existence of an f € LP(I) such that L(gg) = i f(x)g@(x)dx
-% !
-% for all <« then means that [ can be extended to a continuous linear form defined in the whole space Lq(I); in other words, it is a special case of what we now call the Hahn--Banach the
-% orem. There is a similar intecrpretation of condition (1h), replacing Lq(I) by c(la,b]).
-% Such an interpretation of his results was not given by F. Riesz; the first mention of that point of view appears in a paper written in 1912 by the Austrian mathematician E.Helly (1884-1943), in which he gives a different proof of F. Riesz's results on the systems (12) [107 bis]. After an interval of 9 years (due to the first World War, in which he was a prisoner of war in Russia), Helly returned to his method in a paper of 1921 [108] which again should be considered as a landmark in
-% the history of Functional Analysis, since instead of consider ing special spaces such as the P, L or ¢({a,b]), he for the first time deals with general "normed sequence spaces"
-% by methods which do not depend on special features of the space, contrasting with the ones used by E. Schmidt and
+We now interpret condition \eqref{eq:6.9} in the following way: first, if \(\sum\limits_\alpha \lambda_\alpha g_\alpha = 0\) in \(L^q(I)\), then \(\sum\limits_\alpha \lambda_\alpha c_\alpha = 0\); this implies that, if \(F\) is the vector subspace of \(L^q(I)\) generated by the \(g_\alpha\), there is a well determined linear form \(L\) defined in \(F\) such that \(L(g_\alpha) = c_\alpha\) for every \(\alpha\). Condition \eqref{eq:6.9} then means that this linear form \(L\) is \emph{continuous} in \(F\); the existence of an \(f \in L^p(I)\) such that \(L(g_\alpha) = \int_I f(x)g_\alpha(x)dx\) for all \(\alpha\) then means that \(L\) can be \emph{extended} to a continuous linear form defined in the \emph{whole} space \(L^q(I)\); in other words, it is a special case of what we now call the Hahn--Banach theorem. There is a similar intecrpretation of condition \eqref{eq:6.14}, replacing \(L^q(I)\) by \(\Cont([a,b])\).
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 131
-% (*) F. Riesz.
-% Helly considers vector subspaces of the vector space CN of
-% all sequences of complex numbers, and assumes that on such a subspace E there has been defined a norm ”x” (he does not use that name nor the notation) such that: 1) |[[x|| = 0 and the relation Hx” = 0 is egquivalent to x = 0; 2) HxxH = = |K . x” for any scalar X3 3) Hx+y” < Hx” + Hy”; this defines on E a distance d(x,y) = |[x-y|]] in the sense of Fréchet. Of course norms had been defined in the spaces Lp, L? anda c¢([a,b]); but Helly seems to be the first to have noticed the relations of that notion with the concepts of
-% convexity introduced earlier by Minkowski in his "Geometry of numbers ([ 161] and [162]). He had shown that the concept N L N L d n L
-% of norm on a finite dimensional space R (with the scalars limited to real values) was equivalent to the notion of "sym metric convex body", i.e. a closed, symmetric, bounded convex set in which the origin O is an interior point: such a set B can be defined by an inequality p(x) < 1, where p 1is a
-% uniquely determined norm. The boundary of such a set is de=- fined by the equation p(x) = 1, and Minkowski had proved that for each point X of that boundary, there existed at least one hyperplane of support H, containing X, and such that B lies entirely on one side of H. If, for an n-tuple of real numbers u = (ul, \ldots,un) and a point x = (Xl, \ldots,XnL
-% (*)It seems that during the period 1910-1920, F. Riesz always had in mind possible axiomatic generalizations of his results, although he did not publish anything in that direction ([183], vol.I, p.U52),
+Such an interpretation of his results was \emph{not} given by F. Riesz; the first mention of that point of view appears in a paper written in 1912 by the Austrian mathematician E. Helly (1884--1943), in which he gives a different proof of F. Riesz's results on the systems \eqref{eq:6.12} \cite[bis]{107}.
+\mytodo{he wrote [107 bis].}
+After an interval of 9 years (due to the first World War, in which he was a prisoner of war in Russia), Helly returned to his method in a paper of 1921 \cite{108} which again should be considered as a landmark in the history of Functional Analysis, since instead of considering \emph{special} spaces such as the \(l^p, L^p\) or \(\Cont([a,b])\), he for the first time deals with general ``normed sequence spaces'' by methods which do not depend on special features of the space, contrasting with the ones used by E. Schmidt and F. Riesz.\footnote{It seems that during the period 1910--1920, F. Riesz always had in mind possible axiomatic generalizations of his results, although he did not publish anything in that direction (\cite{183}, vol.~I, p.~452).}
 
-% 132 CHAPTER VI
-% one writes (u,x) = U Xy oot U X, the egquation of H has the form (u,x) = 1 for a suitable u, and one has the ine quality (u,x) < p(x) for all x € Rn, with (u,xo) = p(xo);
-% the n-tuples u being identified with the corresponding 1li near forms X+ (Uu,Xx) on Rn, Minkowski had also defined the "support function" q(u) = sup (u,x)/p(x), and shown that it was also a norm on Rn, "diag" to p and such that the hyper planes of support of B are the hyperplanes (u,x) = 1 with q(u) = 13 furtherwmore, p is the norm "dual" to q, in other words p(x) = sup (u,x)/q(u).
-% u#O
-% To transfer to spaces of sequences these concepts and defi nitions, Helly associates to E the subspace E’ of " con sisting of all the sequences u = (un) such that the series % u x converges for all x = (xn) in E (*), and he then ;Ln&kkns (u,x) =Y u x_ . For any u € E’, the number n
-% Hu” = sup (u,x)/”x” defines a norm on E’ provided it is x#0
-% not O for some eiements u # O. Excluding that case, Helly first obtains a weak generalization of Minkowski's result on the hyperplanes of support; if B is the subset of E defi ned by “x” < 1, he shows that the hyperplane H defined by
-% (u,x) = 1 meets B if Hu” < 1, does not meet B for ”u” > 1, Dbut if ”u” = 1, the intersection H NN B may very well be empty: an example is given by taking E = Ll, E’= =1~ and for H the hyperplane ; (l-%)xn = 1. n=1
-% The central problem in Helly's paper is the solution of a system
-% ( )This is not always the dual of E as we now understand
-% *
-% that word,
+Helly considers vector subspaces of the vector space \(\C^{N}\) of all sequences of complex numbers, and assumes that on such a subspace \(E\) there has been defined a \emph{norm} \(\norm{x}\) (he does not use that name nor the notation) such that: 1) \(\norm{x} \geq 0\) and the relation \(\norm{x} = 0\) is equivalent to \(x = 0\); 2) \(\norm{\lambda x} = |\lambda| \cdot \norm{x}\) for any scalar \(\lambda\); 3) \(\norm{x+y} \leq \norm{x} + \norm{y}\); this defines on \(E\) a distance \(d(x,y) = \norm{x-y}\) in the sense of Fréchet. Of course norms had been defined in the spaces \(l^p, L^p\) anda \(\Cont([a,b])\); but Helly seems to be the first to have noticed the relations of that notion with the concepts of \emph{convexity} introduced earlier by Minkowski in his ``Geometry of numbers (\cite{161} and \cite{162}). He had shown that the concept of norm on a \emph{finite} dimensional space \(\R^n\) (with the scalars limited to real values) was equivalent to the notion of ``symmetric convex body'', i.e. a closed, symmetric, bounded convex set in which the origin \(O\) is an interior point: such a set \(B\) can be defined by an inequality \(p(x) \leq 1\), where \(p\) is a uniquely determined norm. The boundary of such a set is defined by the equation \(p(x) = 1\), and Minkowski had proved that for each point \(x_0\) of that boundary, there existed at least one \emph{hyperplane of support} \(H\), containing \(x_0\), and such that \(B\) lies entirely \emph{on one side} of \(H\). If, for an \(n\)-tuple of real numbers \(u = (u_1, \ldots, u_n)\) and a point \(x = (x_1, \ldots, x_n)\), one writes \(\ip{u,x} = u_1 x_1 + \ldots + u_n x_n\), the equation of \(H\) has the form \(\ip{u,x} = 1\) for a suitable \(u\), and one has the inequality \(\ip{u,x} \leq p(x)\) for all \(x \in \R^n\), with \(\ip{u, x_0} = p(x_0)\); the \(n\)-tuples \(u\) being identified with the corresponding linear forms \(x \mapsto \ip{u, x}\) on \(\R^n\), Minkowski had also defined the ``support function'' \(q(u) = \sup\limits_{x \neq 0}\ip{u,x}/p(x)\), and shown that it was also a norm on \(\R^n\), ``dual'' to \(p\) and such that the hyperplanes of support of \(B\) are the hyperplanes \(\ip{u,x} = 1\) with \(q(u) = 1\); furthermore, \(p\) is the norm ``dual'' to \(q\), in other words \(p(x) = \sup\limits_{u \neq 0}\ip{u,x}/q(u)\).
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 133 (15) <u)’x> = C (V=1929°°°) V
-% (v) where the u belong to E’ and one looks for a solution x € E. The inequality |(u,x)| < [[ull*llx|| immediately yieilds the necessary condition similar to Riesz's conditions (9) and
-% (14), namely the existence of a number M > O such that (16) | & A c. | = M v=l ¥V vV il >‘\)u)”
-% n
-% for any n and all choices of scalars )V; but the example
-% given above (for a single equation) shows that there may well be no solution such that |x|]| = M, eveu when condition (16)
-% is satisfied.
-% Helly, as Schmidt and F. Riesz had done, first considers the case of a finite system (15) of N equations, where as usual the u(v) may be supposed to be linearly independent.,
-% The mapping £ x»~>(<u(v),x>)lssz of E into @N is then surjective; Helly shows that on CN, Hy” = inf Hx” is a norm (for us it is the natural norm on E/f-l(O) deduced fram the norm on E); condition (16) then guarantees the existence 1’ 1
-% of a solution x. of (15) such that ”x” < M for any M, > > M (if not necessarily for My = M).
-% The passage from finite systems (15) to the general case is the most original idea of Helly; he splits the problem in two:
-% A) Given M, > M, find a linear form L: E’ 4 ¢, such that lL(u)l < Ml. u| for all wu € E’ and such that L(u(v)) = ¢ V
-% for all V.
-% B) When such a linear form L has been found, find if pos=- sible an element p € E such that (p,u) = L(u) for all
+To transfer to spaces of sequences these concepts and definitions, Helly associates to \(E\) the subspace \(E'\) of \(\C^{\N}\) con sisting of all the sequences \(u = (u_n)\) such that the series \(\sum\limits_n u_n x_n\) converges for \emph{all} \(x = (x_n)\) in \(E\) \footnote{This is not always the dual of \(E\) as we now understand that word.}, and he then considers \(\ip{u,x} = \sum\limits_n u_n x_n\). For any \(u \in E'\), the number \(\norm{u} = \sup\limits_{x \neq 0}\ip{u,x}/\norm{x}\) defines a norm on \(E'\) provided it is not 0 for some eiements \(u \neq 0\). Excluding that case, Helly first obtains a weak generalization of Minkowski's result on the hyperplanes of support; if \(B\) is the subset of \(E\) defined by \(\norm{x} \leq 1\), he shows that the hyperplane \(H\) defined by \(\ip{u,x} = 1\) meets \(B\) if \(\norm{u} < 1\), does not meet \(B\) for \(\norm{u} > 1\), but if \(\norm{u} = 1\), the intersection \(H \cap B\) may very well be empty: an example is given by taking \(E = l^1, E' = l^\infty\) and for \(H\) the hyperplane \(\sum\limits_{n=1}^\infty \left(1 - \frac{1}{n}\right) x_n = 1\).
 
-% 134 CHAPTER VI
-% u € E’.
-% To treat problem A), Helly assumes the additional condition that B is separable as a metric space; he then proves the
-% existence of a solition (a special case of the Hahn--Banach theorem) in the following way. Let (p(v)) be a sequence of elements of E’ which is dense in that space., Helly chooses an increasing sequence M < M(l) < M(Z) < oo o< M1 of
-% numbers, and the main point of his proof counsists in showing that there exists a family (Yv) of complex numbers such that, for any pair of integers m = 1, n =2 1, and auny pair of fa milies (Av), (uv) of scalars, one has
+The central problem in Helly's paper is the solution of a system
+\begin{equation}
+    \label{eq:6.15}
+    \ip{u^{(\nu)}, x} = c_\nu \qquad (\nu=1,2,\ldots)
+\end{equation}
+where the \(u^{(\nu)}\) belong to \(E'\) and one looks for a solution \(x \in E\). The inequality \(|\ip{u,x}| \leq \norm{u} \cdot \norm{x}\) immediately yields the necessary condition similar to Riesz's conditions \eqref{eq:6.9} and \eqref{eq:6.14}, namely the existence of a number \(M > 0\) such that
+\begin{equation}
+    \label{eq:6.16}
+    \left| \sum_{\nu=1}^n \lambda_\nu c_\nu \right| \leq M \cdot \norm*{\sum_{\nu=1}^n \lambda_\nu u^{(\nu)}}
+\end{equation}
+for any \(n\) and \emph{all} choices of scalars \(\lambda_\nu\); but the example given above (for a single equation) shows that there may well be no solution such that \(\norm{x} = M\), even when condition \eqref{eq:6.16} is satisfied.
 
-% v=1 v=1 V
-% n m
+Helly, as Schmidt and F. Riesz had done, first considers the case of a \emph{finite} system \eqref{eq:6.15} of \(N\) equations, where as usual the \(u^{(\nu)}\) may be supposed to be linearly independent. The mapping \(f: x \mapsto (\ip{u^{(\nu)},x})_{1 \leq \nu \leq N}\) of \(E\) into \(\C^{\N}\) is then surjective; Helly shows that on \(\C^{\N}, \norm{y} = \inf\limits_{f(x)=y} \norm{x}\) is a norm (for us it is the natural norm on \(E/f^{-1}(0)\) deduced fram the norm on \(E\)); condition \eqref{eq:6.16} then guarantees the existence of a solution \(x\) of \eqref{eq:6.15} such that \(\norm{x} < M_1\) for \emph{any} \(M_1 > M\) (if not necessarily for \(M_1 = M\)).
 
-% [ - X xvu(v) + ¥ M p(v)
-% It is then easy to show that there exists a linear form [ on E’ such that L(p(v)) = Y, for all indices v, and that
-% it is a solution of problem A).
-% The proof of (17) is done by induction on m, the case m = O being the assumption (16). One has then to prove the existence of a point Yms1 € € which, for any integer n > 1 and any pair of families of scalars A
-% ( V)lfivSn’ (HV)lsvgm
-% belongs to all disks defined in ¢ by
-% n m
-% | X A.C. + % ou Y o+ Yy | <
-% y=1 VY V =1 V Vv m+1
+The passage from finite systems \eqref{eq:6.15} to the general case is the most original idea of Helly; he splits the problem in two:
 
-% (18)
-% (v), plmel)y n m < M(m+l)H X xvu(v) + I u,P
-% =1 v=1
+A) Given \(M_1 > M\), find a linear form \(L: E' \rightarrow \C\), such that \(|L(u)| \leq M_1 \cdot \norm{u}\) for all \(u \in E'\) and such that \(L(u^{(\nu)}) = c_\nu\) for all \(\nu\).
 
-% However, a general result on convex sets in a finite dimensio nal space, proved by Helly himself, reduces that question to proving that any three of the disks (18) have a common point;
-% DUALITY AND THE DEFINITION OF NORMED SPACES 135
-% and this is shown by Helly to be a consequence of the result proved befTore for finite systems (15).
-% Turning to problemn B), Helly discovers that it is quite pos
-% sible that it has no solutionj; in our language, he gives the first example of non reflexive Banach spaces( ). That example
-% *
-% 00 o
-% k=1 N kx—nk|; Helly
-% is the space FE of all sequences (x,) such that the series ¥ %, converges, with the norm HXH = supl L X
-% proves that E’ consists of all sequences (uk) such that o
-% [lu” = |ul| + k1 Iuk+l-uk is finite, Hu” being the natural norm on E’3 then if one takes [ (u) = 1lim u L dis contin K=
-% k’
-% uous on E’ Dbut there is no p € E such that L (u) = (p,u). Starting from the work of F, Riesz and Helly, it was a na=
-% tural generalization to define morms on arbitrary vector spaces over R or €, and not only on spaces of functions or on subspaces of CN. This was done independently by H, Hahn [97] and S. Banach [12], who restrict themselves to
-% complete spaces,
-% Banach's paper is his thesis, written in 1920: although he does not mention convexity, he is careful to develop and ex tensively use a geometric language. He is mainly interested in continuous linear operators u: E = F, where ¥ and F are arbitrary normed complete spaces, and in limits of sequen=- ces of such operators. Hahn's point of view is similar,
-% *
-% ( )F. Riesz had already observed that one could define on the space of functions of bounded variation continuous linear funcionals which were not of the form F+{,:f(x)d(s) for a a
-% continuous function f (for instauce one can take for f an increasing discontinuous function ) ([183], vol.II, p.827).
+B) When such a linear form \(L\) has been found, find if possible an element \(p \in E\) such that \(\ip{p,u} = L(u)\) for all \(u \in E'\).
 
-% 136 CHAPTER VI
-% although he is only concerned with linear forms; neither he nor Banach are at that moment interested in the problem of
-% extension of linear forms, and we postpone a more detailed discussion of their papeirs of 1922-23 to 4., We should how ever mention that in his thesis Banach gives the "abstract" formulation of the method of successive approximations (chap. IT, 1) as a "contraction principle": if F is a mapping of a complete normed space E into itself such that HF(x)-F(y)” < k”x-y” with O< k< 1, then the sequence (Xn) defined by induction as x . = F(xn) (xo arbitrary) converges to the unique "fixed point" x, such that F(x) = x.
-% It was only in 1927 that Hahn returned to Helly's paper, in the general context of complete normed spaces, and completely solved the extension problem for such spaces [98]. He proceeds by induction as Helly had done, but at the same time he great
-% ly simplifies and generalizes the method by introducing, for the first time in general problems of Functional Analysis (*), transfinite induction instead of the ordinary kind, In a com plete normed space E, one has a vector subspace V and there is defined on V a (real valued) linear form f such that |f(x)]| < M||x|| for x € V; the problem is to extend f to a linear form F on E such that |F(y)| < M||ly|| for y€ E., Hahn begins by showing the existence of an ordinal v, (%) . . : -
-% and of a mapping & —V, which, to very ordinal £ < y asso- g Transfinite induction had been used by analysts ever since Cantor, but the application of transfinite induction closest to Hahnt's is probably the method by which Banach, in 1923, had proved the existence on R of a "measure" defined on all subsets of R and simply additive [13].
+To treat problem A), Helly assumes the additional condition that \(E'\) is \emph{separable} as a metric space; he then proves the existence of a solution (a special case of the Hahn--Banach theorem) in the following way. Let \((p^{(\nu)})\) be a sequence of elements of \(E'\) which is dense in that space. Helly chooses an increasing sequence \(M < M^{(1)} < M^{(2)} < \ldots < M_1\) of numbers, and the main point of his proof consists in showing that there exists a family \((\gamma_\nu)\) of complex numbers such that, for any pair of integers \(m \geq 1, n \geq 1\), and any pair of families \((\lambda_\nu), (\mu_\nu)\) of scalars, one has
+\begin{equation}
+    \label{eq:6.17}
+    \left| \sum_{\nu = 1}^n \lambda_\nu c_\nu + \sum_{\nu = 1}^m \mu_\nu \gamma_\nu \right| \leq M^{(m)} \cdot \norm*{\sum_{\nu = 1}^n \lambda_\nu u^{(\nu)} + \sum_{\nu = 1}^m \mu_\nu p^{(\nu)}}.
+\end{equation}
 
-% DUALITY AND THE DEFINITION OF NORMED SPACES 137
-% ciates a vector subspace Vé of E such that VO =V, V. € V for < V has codimension 1 in V, and E is the union of the V for & < y. The problem is then g easily reduced to the case in which V has codimension 1 in
-% E, and then E is generated by V and an element a ¢ Vj Hahn coasiders the l.,u.b B of the numbers f(x) - M”x-a“ for x € V, and the g.l.b, A of the numbers f(x) + MHx-a” for x € V, and, using the assumption [f(x)]| < M||x|| for x€ V, he easily shows that A < B; the extension F is then defined by F(x+Xa) = f(x) + Ac for all % € R, where ¢ dis any number such that A < c < B.
-% As a particular case of his theorem, Hahn shows that for any vector a O in FE there exists a continuous linear 9 form I on L such that ||[L|] = 1 and 5(a) = |a|l; he then formally introduces the dual space E’ of E ("polare Raum" in his terminology) which is not reduced to O due to the preceding result; he writes B(u,x) instead of wu(x) for x € E, u€ E’, aund considers for any x € E, the linear form c¢(x): u+—B(u,x) on E’, for which he shows that
+It is then easy to show that there exists a linear form \(L\) on \(E'\) such that \(L(p^{(\nu)}) = \gamma_\nu\) for all indices \(\nu\), and that it is a solution of problem A).
 
-% Fe(x)Il =[x
-% « In other words, he has defined a linear iso
+The proof of \eqref{eq:6.17} is done by induction on \(m\), the case \(m = 0\) being the assumption \eqref{eq:6.16}. One has then to prove the existence of a point \(\gamma_{m+1} \in \C\) which, for any integer \(n \geq 1\) and any pair of families of scalars \((\lambda_\nu)_{1 \leq \nu \leq n}, (\mu_\nu)_{1 \leq \nu \leq m}\), belongs to \emph{all} disks defined in \(\C\) by
+\begin{equation}
+    \label{eq:6.18}
+    \begin{gathered}
+        \left| \sum_{\nu = 1}^n \lambda_\nu c_\nu + \sum_{\nu = 1}^m \mu_\nu \gamma_\nu + \gamma_{m+1} \right| \leq \\
+        \leq M^{(m+1)} \norm*{\sum_{\nu = 1}^n \lambda_\nu u^{(\nu)} + \sum_{\nu = 1}^m \mu_\nu p^{(\nu)} + p^{(m+1)}}.
+    \end{gathered}
+\end{equation}
+However, a general result on convex sets in a finite dimensional space, proved by Helly himself, reduces that question to proving that \emph{any three} of the disks \eqref{eq:6.18} have a common point; and this is shown by Helly to be a consequence of the result proved before for \emph{finite} systems \eqref{eq:6.15}.
 
-% metry c¢c of E dinto its second dual E’, and he says a space E is "reguldr" if ¢ is bi jective (our reflexive spaces). It may therefore rightly be said that with this paper of Hahn, duality theory at last has come into its own.,
-% Two years later, Banach, who apparently was not aware of Hahn's paper, published the same theorem with the same proof (he later acknowledged Hahn's priority); in addition, he re cognized that the argument could be generalizeds: if p idis a
+Turning to problemn B), Helly discovers that it is quite possible that it has \emph{no} solution; in our language, he gives the first example of \emph{non reflexive} Banach spaces\footnote{F. Riesz had already observed that one could define on the space of functions of bounded variation continuous linear funcionals which were not of the form \(\xi \mapsto \int_a^b f(x)d\xi(s)\) for a continuous function \(f\) (for instauce one can take for \(f\) an increasing discontinuous function ) (\cite{183}, vol.~II, p.~827).}. That example is the space \(E\) of all sequences \((x_n)\) such that the series \(\sum\limits_{k=1}^\infty x_k\) converges, with the norm \(\norm{x} = \sup\limits_n \left| \sum\limits_{k=n}^\infty x_k \right|\); Helly proves that \(E'\) consists of all sequences \((u_k)\) such that \(\norm{u} = |u_1| + \sum\limits_{k=1}^\infty |u_{k+1} - u_k|\) is finite, \(\norm{u}\) being the natural norm on \(E'\); then if one takes \(L(u) = \lim\limits_{k \to \infty} u_k, L\) is continuous on \(E'\) but there is no \(p \in E\) such that \(L(u) = \ip{p,u}\).
 
-% 138 CHAPTER VI
-% real valued function defined in a vector space E and such that p(x+y) < p(x) + p(y) and p(irx) Ap(x) for A = O, and if f 4is a linear form defined in a vector subspace V of E and such that f(x) < p(x) din V, +then it is possible
-% to extend f +to a linear form F defined in E and such that F(x) < p(x) din E. This extension was to play later an important role in the development of the theory of locally convex spaces (cf. chapter VIII).
+Starting from the work of F. Riesz and Helly, it was a natural generalization to define norms on \emph{arbitrary} vector spaces over \(\R\) or \(\C\), and not only on spaces of functions or on subspaces of \(\C^{\N}\). This was done independently by H. Hahn \cite{097} and S. Banach \cite{012}, who restrict themselves to \emph{complete} spaces.
+
+Banach's paper is his thesis, written in 1920: although he does not mention convexity, he is careful to develop and extensively use a geometric language. He is mainly interested in continuous linear operators \(u: E \rightarrow F\), where \(E\) and \(F\) are arbitrary normed complete spaces, and in limits of sequences of such operators. Hahn's point of view is similar, although he is only concerned with linear forms; neither he nor Banach are at that moment interested in the problem of extension of linear forms, and we postpone a more detailed discussion of their papeirs of 1922--23 to \ref{sec:6.4}. We should however mention that in his thesis Banach gives the ``abstract'' formulation of the method of successive approximations (chap. \ref{ch:2}, \ref{sec:2.1}) as a ``contraction principle'': if \(F\) is a mapping of a complete normed space \(E\) into itself such that \(\norm{F(x)-F(y)} \leq k\norm{x-y}\) with \(0 < k < 1\), then the sequence \((x_n)\) defined by induction as \(x_{n+1} = F(x_n)\) (\(x_0\) arbitrary) converges to the unique ``fixed point'' \(x\), such that \(F(x) = x\).
+
+It was only in 1927 that Hahn returned to Helly's paper, in the general context of complete normed spaces, and completely solved the extension problem for such spaces \cite{098}. He proceeds by induction as Helly had done, but at the same time he greatly simplifies and generalizes the method by introducing, for the first time in general problems of Functional Analysis \footnote{Transfinite induction had been used by analysts ever since Cantor, but the application of transfinite induction closest to Hahnt's is probably the method by which Banach, in 1923, had proved the existence on \(\R\) of a ``measure'' defined on all subsets of \(\R\) and simply additive \cite{013}.}, \emph{transfinite induction} instead of the ordinary kind. In a complete normed space \(E\), one has a vector subspace \(V\) and there is defined on \(V\) a (real valued) linear form \(f\) such that \(|f(x)| \leq M\norm{x}\) for \(x \in V\); the problem is to extend \(f\) to a linear form \(F\) on \(E\) such that \(|F(y)| < M\norm{y}\) for \(y \in E\). Hahn begins by showing the existence of an ordinal \(\gamma\), and of a mapping \(\xi \mapsto V_\xi\), which, to very ordinal \(\xi < \gamma\) associates a vector subspace \(V_\xi\) of \(E\) such that \(V_0 = V, V_\xi \subset V\) for \(\xi < \eta, V_\xi\) has codimension 1 in \(V_{\xi + 1}\), and \(E\) is the union of the \(V_\xi\) for \(\xi < \gamma\). The problem is then easily reduced to the case in which \(V\) has codimension 1 in \(E\), and then \(E\) is generated by \(V\) and an element \(a \not\in V\); Hahn coasiders the l.u.b \(B\) of the numbers \(f(x) - M\norm{x-a}\) for \(x \in V\), and the g.l.b. \(A\) of the numbers \(f(x) + M\norm{x-a}\) for \(x \in V\), and, using the assumption \(|f(x)| \leq M\norm{x}\) for \(x \in V\), he easily shows that \(A \leq B\); the extension \(F\) is then defined by \(F(x+\lambda a) = f(x) + \lambda c\) for all \(\lambda \in \R\), where \(c\) is any number such that \(A \leq c \leq B\).
+
+As a particular case of his theorem, Hahn shows that for any vector \(a \neq 0\) in \(E\) there exists a continuous linear form \(L\) on \(E\) such that \(\norm{L} = 1\) and \(L(a) = \norm{a}\); he then formally introduces the \emph{dual} space \(E'\) of \(E\) (``polare Raum'' in his terminology) which is not reduced to 0 due to the preceding result; he writes \(B(u,x)\) instead of \(u(x)\) for \(x \in E, u \in E'\), and considers for any \(x \in E\), the linear form \(c(x): u \mapsto B(u,x)\) on \(E'\), for which he shows that \(\norm{c(x)} = \norm{x}\). In other words, he has defined a linear isometry \(c\) of \(E\) into its second dual \(E''\), and he says a space \(E\) is ``regulär'' if \(c\) is bijective (our reflexive spaces). It may therefore rightly be said that with this paper of Hahn, duality theory at last has come into its own.
+
+Two years later, Banach, who apparently was not aware of Hahn's paper, published the same theorem with the same proof (he later acknowledged Hahn's priority); in addition, he re cognized that the argument could be generalized: if \(p\) is a real valued function defined in a vector space \(E\) and such that \(p(x+y) \leq p(x) + p(y)\) and \(p(\lambda x) = \lambda p(x)\) for \(\lambda \geq 0\), and if \(f\) is a linear form defined in a vector subspace \(V\) of \(E\) and such that \(f(x) \leq p(x)\) in \(V\), then it is possible to extend \(f\) to a linear form \(F\) defined in \(E\) and such that \(F(x) \leq p(x)\) in \(E\). This extension was to play later an important role in the development of the theory of locally convex spaces (cf. chapter \ref{ch:8}).
 
 \section{The method of the gliding hump and Baire category}
 \label{sec:6.4}
