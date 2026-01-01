@@ -327,13 +327,13 @@ where \(q\) is a real valued continuous function in a compact interval \([a,b]\)
 where \(alpha\) and \(\beta\) are two positive constants, and to determine for what values of \(\lambda\) the problem has a non trivial solution (an ``eigenfunction'' for the ``eigenvalue'' \(\lambda\) in our present day language).
 
 A first remark, which had already essentially been made by Poisson, is that if \(\lambda, \mu\) are two different eigenvalues, and \(u, v\) two corresponding ``eigenfunctions'', then from the relations
-\begin{equation*}
+\[
     u'' - qu + \lambda u = 0, \quad v'' - qv + \mu v = 0,
-\end{equation*}
+\]
 one deduces
-\begin{equation*}
+\[
     u'' v - v'' u + (\lambda - \mu) uv = 0
-\end{equation*}
+\]
 and as \(\int\limits_a^b \left(u'' v - v'' u\right)dx = (u'v - v'u)\rvert_a^b = 0\) because of \eqref{eq:1.25}, one obtains
 \begin{equation}
     \label{eq:1.26}
@@ -412,14 +412,14 @@ where the parameter \(\varepsilon\) on the right-hand sides is ``small''. The ge
 \end{equation}
 to substitute these expressions in and identify the coefficients of the successive powers of \(\varepsilon\) on both sides. This led to a succession of equations
 \mytodo{the line of dots at the end is not visible}
-\begin{equation*}
+\[
 \begin{aligned}
     y'_{1i} &= f_{1i}(x, a_1, \ldots, a_n) \\
     y'_{2i} &= F_{2i}(x, y_{11}, \ldots, y_{1n}) \\
     y'_{3i} &= F_{3i}(x, y_{11}, \ldots, y_{1n}, y_{21}, \ldots, y_{2n}) \\
     \dotfill
 \end{aligned}
-\end{equation*}
+\]
 all of which had right-hand sides which were known functions, hence were reduced to mere ``quadratures''. No attempt was made to justify mathematically those procedures; the goal of these computations was merely to obtain a satisfactory agreement with observations.
 
 It is well-known that Cauchy was the first mathematician who proved existence theorems for \emph{general} types of differential equations, for which no explicit solution is available. His strategy was to consider the various methods introduced earlier for the purpose of numerical computations, and to show that, under certain conditions, these methods actually gave \emph{convergent} approximation processes having a solution as limit. In particular, in a paper published in 1835 in Prag (\cite{040}, (2), vol.~XI, p.~399--465), he takes up the method outlined above, not for an ordinary differential equation, but for a linear partial differential equation of first order (which was known to be equivalent to a system of ordinary differential equations)
@@ -433,9 +433,9 @@ the problem is to find a solution which for \(t=0\) reduces to a given function 
     U(t, x_1, \ldots, x_p) = u(x_1, \ldots, x_p) + \int_0^t \left( \sum_{i=1}^p A_i(s, x_1, \ldots, x_p) \right) \frac{\partial U}{\partial x_i} ds
 \end{equation}
 which he solves by successive approximations, starting with \(U_0 = u\), and defining
-\begin{equation*}
+\[
     U_n(t, x_1, \ldots, x_p) = u(x_1, \ldots, x_p) + \int_0^t \left( \sum_{i=1} A_i(s, x_1, \ldots, x_p) \right) \frac{\partial U_{n-1}}{\partial x_i} ds
-\end{equation*}
+\]
 by induction; but he is only able to prove convergence towards a solution when the \(A_i\) are analytic functions.
 
 In his 1837 papers on the Sturm--Liouville problem Liouville independently applied a similar method to the linear differential equation \(y'' = f(x)y\), for which he wants to find a solution in \([a,b]\) satisfying the boundary condition \(y'(a) - hy(a) = 0\). He starts from the function \(y_0(x) = 1+h(x-a)\) satisfying that condition, and considers the series
@@ -444,13 +444,13 @@ In his 1837 papers on the Sturm--Liouville problem Liouville independently appli
     y = y_0 + y_1 + \ldots + y_n + \ldots
 \end{equation}
 where the \(y_n\) are determined for \(n > 0\) by the recursive equations
-\begin{equation*}
+\[
     y_{n+1}(x) = \int_a^x dt \int_a^t f(s)y_n(s)ds.
-\end{equation*}
+\]
 It must be remembered that at that time the concept of uniform convergence had not yet been formulated, and no justifi cation had been given for asserting the continuity of a con vergent series of continuous functions, or differentiating or integrating such a series termwise, Liouville proves very easily that there is a constant \(C\) such that
-\begin{equation*}
+\[
     \left| y_n(x) \right| \leq C^n(x-a)^{2n} / (2n)!
-\end{equation*}
+\]
 from which he concludes that the series \eqref{eq:2.5} giving \(y(x)\) converges for every \(x\); but he tacitly takes for granted that \(y\) is a \(C^2\) function and a solution of his problem.
 
 In addition, Liouville makes the interesting remark that the function \(y\) can also be defined by the relation
@@ -484,12 +484,12 @@ where the right hand sides do not contain any derivative with respect to \(x_{p+
 
 The tendency (inherited from the XVIII\supth{} century) to consider that the most interesting functions were analytic was still very strong during the whole XIX\supth{} century, and therefore at first the analyticity restrictions of the Cauchy--Kowalewska theorem did not worry mathematicians very much, However, as it was known that some special types of partial differential equations, such as the scalar equation of first order and some types of second order equations, had solutions under much less stringent restrictions, people began to wonder if some other method than Cauchy's ``method of majorants'' (which could only be applied to analytic functions) would not yield a generalization of the Cauchy--Kowalewska theorem, at least for \(C^\infty\) functions. The question remained unanswered until 1956, when H. Lewy gave the surprising example of a system of
 two linear equations in 3 variables, with \(C^\infty\) coefficients
-\begin{equation*}
+\[
   \begin{dcases}
     \frac{\partial v_1}{\partial x_1} = \frac{\partial v_2}{\partial x_2} - 2 x_2 \frac{\partial v_1}{\partial x_3} - 2x_1 \frac{\partial v_2}{\partial x_3} - f(x_3) \\
     \frac{\partial v_2}{\partial x_1} = -\frac{\partial v_1}{\partial x_2} + 2 x_1 \frac{\partial v_1}{\partial x_3} - 2x_2 \frac{\partial v_2}{\partial x_3}
   \end{dcases}
-\end{equation*}
+\]
 which, for a suitable choice of the real \(C^\infty\) function \(f\), has \emph{no solution} whatsoever around any point (even if one al lows solutions which are distributions).
 
 We shall not discuss the numerous local studies of analytic systems of partial differential equations (not necessarily reducible to the form \eqref{eq:2.8}) which followed the Cauchy--Kowalewska theorem, since they had no influence on the development of Functional Analysis as we understand it.
@@ -632,9 +632,9 @@ Around 1860, C. Beer proposed to obtain a solution to the Dirichlet problem by f
     2\pi \rho(M) + \iint_\Sigma \rho(P) \frac{\partial}{\partial n}\left(\frac{1}{MP}\right) d\sigma = g(M) \quad \text{for } M \in \Sigma.
 \end{equation}
 He then concluded that one could compute \(\rho\) by the usual device of ``successive approximations'' (\ref{sec:2.1}) starting with \(\rho_0(M) = \frac{1}{2\pi} g(M)\) and defining recursively \(\rho_n(M)\) by
-\begin{equation*}
+\[
     2\pi \rho_n(M) + \iint_\Sigma \rho_{n-1}(P) \frac{\partial}{\partial n}\left(\frac{1}{MP}\right) d\sigma = 0 \quad \text{for } n \geq 1
-\end{equation*}
+\]
 so that the series \(\rho(M) = \rho_0(M) + \rho_1(M) + \ldots + \rho_n(M) + \ldots\) would give the solution to \eqref{eq:2.23}; but he made no attempt to prove that the series converged.
 
 In 1877, Carl Neumann attempted to give such a proof \cite{165}. He restricted himself to the case in which the domain \(V\) is bounded and \emph{convex}, but he allowed a non smooth boundary \(\Sigma\); equation \eqref{eq:2.23} must then be modified to
@@ -851,12 +851,12 @@ tends to \(d_1 \varphi_1\) if \(\mu_1\) is a simple eigenvalue, to the sum of th
     W_m = \left( U^m \cdot w_0 | w_0 \right) = \left( U^{m-k} \cdot w_0 | U^k \cdot w_0 \right) = \sum_n \mu^m_n d^2_n
 \]
 from which it follows that if the \(d_n\) such that \(\mu_n = \mu_1\) are not all 0, the ratio \(W_m / W_{m-1}\) tends to \(\mu_1\); furthermore, one has
-\begin{equation*}
+\[
     \begin{gathered}
         W_{2m} = \norm{U^m \cdot w_0}^2 = |\left( U^{m+1} \cdot w_0 | U^{m-1} \cdot w_0 \right)| \leq \norm{U^{m+1} \cdot w_0} \cdot \norm{U^{m-1} \cdot w_0} \\
         = \left( W_{2m-2} W_{2m+2} \right)^\frac{1}{2}.
     \end{gathered}
-\end{equation*}
+\]
 To get the inequality \(W_m \leq \left( W_{2m-2} W_{2m+2} \right)^\frac{1}{2}\) for all integers \(m\), it is enough to consider the unique compact positive operator \(V\) such that \(V^2 = U\), and apply to \(V\) the preceding argument. Of course the concept of the ``square root'' of a positive selfad joint operator was not available to Schwarz, and this is why he had to use the expression \eqref{eq:3.16} for his numbers \(W_n\).
 
 In 1893, E. Picard published a short Comptes-Rendus Note (\cite{172}, vol.~II, p.~545--550) in which he went one step further. For any point \(M \in D\), the function \(w(M, \xi)\) given by Schwarz's series \eqref{eq:3.9} is holomorphic in the circle \(|\xi| < \xi_1 = 1/\sqrt{c}\), and Picard investigates the \emph{analytic continuation} of \(\xi \mapsto w(M, \xi)\) beyond that circle: he shows that such a continuation exists in a circle \(|\xi| < \xi_2\), of radius independent of \(M \in D\), and that it has a \emph{simple pole} with residue \(-\xi_1 U_1(M)\) at the point \(\xi_1\). He limits himself to the case in which \(p = 1\) and \(\Gamma\) is convex and smooth, and his idea is to adapt the method of C. Neumann (Chap. \ref{ch:2}, \ref{sec:2.4}) to evaluate the differences \(\left| \xi^n_1 w_n - \xi^{n-1}_1 w_{n-1} \right|\); with apparently the same gap as in Neumann's argument (the details are not given in the Note) he ``proves'' that there are constants \(C\) and \(q < 1\) independent of \(M\), such that \(\left| \xi^n_1 w_n - \xi^{n-1}_1 w_{n-1} \right| \leq Cq^n\), hence \(\left| \xi^n_1 w_n - U_1 \right| \leq C'q^n\) for another constant \(C'\), hence his result. writing
